@@ -1,0 +1,288 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>net.yustinus</groupId>
+	<artifactId>Crud-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<name>Parent POM</name>
+	<description>All version libraries and repos</description>
+	
+	<properties>
+  		<!-- Servlet api -->
+		<!-- <servlet.api.version>3.0</servlet.api.version> -->
+		<!-- <servlet.api.version>3.0.1</servlet.api.version> -->
+		<servlet.api.version>3.1.0</servlet.api.version>
+		
+		<!-- ZK CE framework -->
+		<zk.ce.version>8.0.1.1</zk.ce.version>
+		<!-- ZK EE framework -->
+		<!-- <zk.ee.version>8.0.1.1-Eval</zk.ee.version> -->
+		<zkoss.zkspring.version>3.2.0</zkoss.zkspring.version>
+		<zkoss.zkspring-security.version>3.2.0</zkoss.zkspring-security.version>
+		
+		<!-- Spring framework -->
+		<spring.version>4.2.5.RELEASE</spring.version>
+		<spring-security.version>4.0.4.RELEASE</spring-security.version>
+		
+		<!-- Mybatis framework -->
+		<mybatis.version>3.3.1</mybatis.version>
+		<mybatis-spring.version>1.2.4</mybatis-spring.version>
+		
+		<!-- connection pooling with hikariCP -->
+		<hikariCP.version>2.4.3</hikariCP.version>
+		
+		<!-- Google Guava libraries -->
+		<guava.version>19.0</guava.version>
+		
+		<!-- Apache commons -->
+		<commons-lang.version>3.4</commons-lang.version>
+		<commons-collections.version>4.1</commons-collections.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<commons-logging.version>1.2</commons-logging.version>
+		<commons-beanutils.version>1.9.2</commons-beanutils.version>
+		<commons-fileupload.version>1.3.1</commons-fileupload.version>
+		<commons-cli.version>1.3.1</commons-cli.version>
+		<commons-validator.version>1.5.0</commons-validator.version>
+		<commons-io.version>2.4</commons-io.version> <!-- 1.3.2 -->
+	    <!-- <org.mod4j.org.apache.commons.version>2.1.0</org.mod4j.org.apache.commons.version> -->
+		
+		<!-- Java Mail -->
+		<javax.mail.version>1.5.5</javax.mail.version>
+
+		<mockito-core.version>1.10.19</mockito-core.version>
+		<jaxb-api.version>2.2.12</jaxb-api.version>
+
+		<!-- Jackson -->
+		<fasterxml.jackson.version>2.7.2</fasterxml.jackson.version>
+
+		<!-- JODA time api -->
+		<joda-time.version>2.9.2</joda-time.version>
+
+		<!-- Tomcat version -->
+		<tomcat.version>8.0.32</tomcat.version>
+
+		<!-- Logging -->
+		<log4j.version>2.5</log4j.version>
+		<slf4j-log4j12.version>1.7.18</slf4j-log4j12.version>
+		<slf4j-api.version>1.7.18</slf4j-api.version>
+
+		<junit.version>4.11</junit.version>
+		<mysql-connector.version>5.1.38</mysql-connector.version>
+		
+		<!-- PDF Proccesing -->
+		<dynamicreports.version>4.1.0</dynamicreports.version>
+		<jasper-report.version>6.2.0</jasper-report.version>
+		
+		<!-- Encryption -->
+		<bouncy-castle.version>1.54</bouncy-castle.version>
+		
+		<!-- =============================================================== -->
+		<!-- MAVEN PLUGINS -->
+		<!-- =============================================================== -->
+		<maven-war-plugin.version>2.6</maven-war-plugin.version>
+		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+		<maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
+		<maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+		<maven-source-plugin.version>3.0.0</maven-source-plugin.version><!-- 2.2.1 -->
+		<maven.yuicompressor.version>1.3.2</maven.yuicompressor.version>
+		<maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
+		<maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
+		<maven-tomcat-plugin.version>2.2</maven-tomcat-plugin.version>
+
+		<!-- JRebel PLUGIN version -->
+		<!-- <jrebel-maven-plugin.version>1.1.3</jrebel-maven-plugin.version> -->
+
+		<!-- Java version, Source Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source.version>1.7</maven.compiler.source.version>
+		<maven.compiler.target.version>1.7</maven.compiler.target.version>
+
+		<!-- Local library -->
+		<user-libs>${basedir}/src/main/webapp/WEB-INF/lib/</user-libs>
+  </properties>
+  
+  <repositories>
+
+		<!-- Standard Apache Maven repository -->
+		<repository>
+			<id>Standard Maven repository</id>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+
+		<!-- ZK CE repository -->
+		<repository>
+			<id>ZK CE</id>
+			<name>ZK CE Repository</name>
+			<url>http://mavensync.zkoss.org/maven2</url>
+		</repository>
+
+		<!-- ZK EE / eval repository -->
+		<repository>
+			<id>ZK EVAL</id>
+			<name>ZK Evaluation Repository</name>
+			<url>http://mavensync.zkoss.org/eval</url>
+		</repository>
+		
+		<!-- Servlet api 3.0 -->
+		<repository>
+			<id>java.net2</id>
+			<name>Repository hosting the jee6 artifacts</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+
+		<!-- Servlet api 3.0.1 -->
+		<repository>
+			<id>servlet api</id>
+			<name>servlet-api</name>
+			<url>http://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/</url>
+		</repository>
+		
+		<!-- NetBeans Repo -->
+		<repository>
+			<id>Netbeans</id>
+			<name>Netbeans</name>
+			<url>http://bits.netbeans.org/maven2</url>
+		</repository>
+	</repositories>
+	
+	<!-- Plugins respositories -->
+	<pluginRepositories>
+
+		<!-- ZK maven plugins -->
+		<pluginRepository>
+			<id>zkmaven</id>
+			<name>ZK Maven Plugin Repository</name>
+			<url>http://mavensync.zkoss.org/maven2</url>
+		</pluginRepository>
+		<pluginRepository>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<id>snapshots</id>
+			<name>Maven Central Plugins Development Repository</name>
+			<url>http://snapshots.maven.codehaus.org/maven2</url>
+		</pluginRepository>
+
+		<!-- ZK maven plugins -->
+		<pluginRepository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</pluginRepository>
+
+	</pluginRepositories>
+	
+	
+	<!-- ===================== Build ===================== -->
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${maven-clean-plugin.version}</version>
+				<configuration>
+					<failOnError>false</failOnError>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<source>${maven.compiler.source.version}</source>
+					<target>${maven.compiler.target.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin.version}</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+			</plugin>
+
+			<!-- <plugin>
+				<groupId>org.zeroturnaround</groupId>
+				<artifactId>jrebel-maven-plugin</artifactId>
+				<version>${jrebel-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>generate-rebel-xml</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+		</plugins>
+
+	</build>
+
+	<!-- ===================== Reporting ================= -->
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.8.1</version>
+				<reportSets><!-- only index -->
+					<reportSet>
+						<reports>
+							<report>index</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+				<reportSets>
+					<reportSet><!-- by default, id = "default" -->
+						<reports><!-- select non-aggregate reports -->
+							<report>javadoc</report>
+							<report>test-javadoc</report>
+						</reports>
+					</reportSet>
+					<reportSet>
+						<id>aggregate</id><!-- aggregate reportSet, for pom with modules -->
+						<inherited>false</inherited><!-- don't run aggregate in child modules -->
+						<reports>
+							<report>aggregate</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+
+		</plugins>
+	</reporting>
+</project>

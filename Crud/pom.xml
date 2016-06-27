@@ -22,6 +22,7 @@
 		
 	<modules>
 		<module>Crud-parent</module>
+		<module>Crud-backend</module>
 	</modules>
 
 </project>

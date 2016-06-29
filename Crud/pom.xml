@@ -17,12 +17,14 @@
 
 	<artifactId>Crud</artifactId>
 	<packaging>pom</packaging>
-	<name>[Crud] SUPER POM</name>
+	<name>[Crud]-SUPER POM</name>
 	<description>Build all module</description>
 		
 	<modules>
 		<module>Crud-parent</module>
 		<module>Crud-backend</module>
+		<module>Crud-utilities</module>
+		<module>Crud-web</module>
 	</modules>
 
 </project>

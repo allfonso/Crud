@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
-	<name>Parent POM</name>
+	<name>[Crud]-Parent POM</name>
 	<description>All version libraries and repos</description>
 	
 	<properties>

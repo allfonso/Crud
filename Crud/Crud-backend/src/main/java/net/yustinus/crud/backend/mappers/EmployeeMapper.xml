@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.yustinus.crud.backend.mappers.EmployeeMapper">
+	<!-- <select id="getEmployeeById" parameterType="int" resultMap="employeeResultMap"> -->
+	<select id="getEmployeeById" parameterType="int" resultMap="employeeResultMap">
+		SELECT * FROM cr_employee WHERE id = #{employeeId}
+	</select>
+	<resultMap id="employeeResultMap" type="employeeBean">
+		<result column="id" property="employeeId"/>
+		<result column="name" property="name"/>
+		<result column="gender" property="gender"/>
+		<result column="address" property="address"/>
+		<result column="age" property="age"/>
+	</resultMap>
+	
+	<insert id="insertEmployee" parameterType="EmployeeBean" useGeneratedKeys="true" keyProperty="employeeId" keyColumn="id">
+		INSERT INTO cr_employee VALUE (#{employeeId}, #{name},#{gender},#{address},#{age})
+	</insert>
+</mapper>

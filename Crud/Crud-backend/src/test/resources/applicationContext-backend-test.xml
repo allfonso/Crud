@@ -22,7 +22,7 @@
 
 	<context:component-scan base-package="net.yustinus.crud.backend" />
 
-	<context:property-placeholder location="classpath:mysql.properties" />
+	<context:property-placeholder location="classpath:mysql-test.properties" />
 
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="poolName" value="springHikariCP" />

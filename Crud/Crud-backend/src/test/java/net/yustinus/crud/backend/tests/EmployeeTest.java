@@ -63,8 +63,29 @@ public class EmployeeTest extends BasicTest{
 		employee.setGender('M');
 		employee.setAddress("Sleman");
 		employee.setAge(2);
-		boolean f = employeeService.addEmployee(employee);
-		Assert.assertTrue(f);
+		EmployeeBean result = employeeService.addEmployee(employee);
+		Assert.assertNotNull(result);
+	}
+	
+	@Test
+	public void updateEmployee() {
+		EmployeeBean employee = new EmployeeBean();
+		employee.setName("Tristan J");
+		employee.setGender('M');
+		employee.setAddress("Jogja");
+		employee.setAge(3);
+		employee.setEmployeeId(3);
+		EmployeeBean result = employeeService.updateEmployee(employee);
+		Assert.assertNotNull(result);
+		
+	}
+	
+	@Test
+	public void deleteEmployee() {
+		EmployeeBean deletedEmployee = employeeService.searchEmployee(2);		
+		EmployeeBean result = employeeService.updateEmployee(deletedEmployee);
+		Assert.assertNotNull(result);
+		
 	}
 
 }

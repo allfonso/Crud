@@ -63,9 +63,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public EmployeeBean deleteEmployee(int employeeId) {
+	public EmployeeBean deleteEmployee(EmployeeBean employee) {
 		// TODO Auto-generated method stub
-		return null;
+		int a = employeeMapper.removeEmployee(employee.getEmployeeId());
+		if (a < 0)
+			return null;
+		else 
+			return employee; 
 	}
 
 	/* (non-Javadoc)
@@ -73,23 +77,27 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public boolean addEmployee(EmployeeBean employee) {
+	public EmployeeBean addEmployee(EmployeeBean employee) {
 		// TODO Auto-generated method stub
 		int a = employeeMapper.insertEmployee(employee);
-		System.out.println(employee.getEmployeeId());
-		if (a <0)
-			return false;
+		if (a < 0)
+			return null;
 		else
-			return true;
+			return employee;
 	}
 
 	/* (non-Javadoc)
 	 * @see net.yustinus.crud.backend.services.EmployeeService#updateEmployee(net.yustinus.crud.backend.beans.EmployeeBean)
 	 */
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public EmployeeBean updateEmployee(EmployeeBean employee) {
 		// TODO Auto-generated method stub
-		return null;
+		int a = employeeMapper.editEmployee(employee);
+		if (a < 0)
+			return null;
+		else
+			return employee;
 	}
 	public EmployeeMapper getEmployeeMapper() {
 		return employeeMapper;

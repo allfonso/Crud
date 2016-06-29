@@ -27,6 +27,9 @@
 		<spring.version>4.2.5.RELEASE</spring.version>
 		<spring-security.version>4.0.4.RELEASE</spring-security.version>
 		
+		<!-- AOP for spring AOP -->
+		<aspectjweaver.version>1.6.8</aspectjweaver.version>
+		
 		<!-- Mybatis framework -->
 		<mybatis.version>3.3.1</mybatis.version>
 		<mybatis-spring.version>1.2.4</mybatis-spring.version>
@@ -38,8 +41,10 @@
 		<guava.version>19.0</guava.version>
 		
 		<!-- Apache commons -->
-		<commons-lang.version>3.4</commons-lang.version>
-		<commons-collections.version>4.1</commons-collections.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<commons-lang3.version>3.4</commons-lang3.version>
+		<commons-collections.version>3.2.2</commons-collections.version>
+		<commons-collections4.version>4.1</commons-collections4.version>
 		<commons-codec.version>1.10</commons-codec.version>
 		<commons-logging.version>1.2</commons-logging.version>
 		<commons-beanutils.version>1.9.2</commons-beanutils.version>
@@ -65,7 +70,7 @@
 		<tomcat.version>8.0.32</tomcat.version>
 
 		<!-- Logging -->
-		<log4j.version>2.5</log4j.version>
+		<log4j.version>2.6.1</log4j.version>
 		<slf4j-log4j12.version>1.7.18</slf4j-log4j12.version>
 		<slf4j-api.version>1.7.18</slf4j-api.version>
 

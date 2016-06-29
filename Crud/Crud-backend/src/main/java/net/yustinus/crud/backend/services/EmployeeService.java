@@ -38,9 +38,9 @@ public interface EmployeeService {
 	
 	public EmployeeBean searchEmployee(int employeeId);
 	
-	public EmployeeBean deleteEmployee(int employeeId);
+	public EmployeeBean deleteEmployee(EmployeeBean employee);
 	
-	public boolean addEmployee(EmployeeBean employee);
+	public EmployeeBean addEmployee(EmployeeBean employee);
 	
 	public EmployeeBean updateEmployee(EmployeeBean employee);
 

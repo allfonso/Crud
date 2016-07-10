@@ -1,0 +1,52 @@
+<?page title="Tes" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Crud" border="normal">
+		<grid>
+			<rows>
+				<row>
+					<label value="ID" />
+					<label value="" />
+				</row>
+				<row>
+					<label value="Name" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Gender" />
+					<radiogroup>
+						<radio value="M" label="Male" selected="true" />
+						<radio value="F" label="Female" />
+					</radiogroup>
+				</row>
+				<row>
+					<label value="Address" />
+					<textbox />
+				</row>
+				<row>
+					<label value="Age" />
+					<intbox />
+				</row>
+				<row>
+
+				</row>
+			</rows>
+		</grid>
+		<div align="center">
+			<button label="Save" />
+			<button label="Update" visible="false" />
+			<button label="Cancel" />
+		</div>
+	</window>
+	<window border="none">
+		<grid>
+			<columns sizable="true">
+				<column label="ID" />
+				<column label="Name" />
+				<column label="Gender" />
+				<column label="Address" />
+				<column label="Age" />
+				<column />
+			</columns>
+		</grid>
+	</window>
+</zk>

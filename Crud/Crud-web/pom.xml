@@ -1,42 +1,47 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
 		<groupId>net.yustinus</groupId>
 		<artifactId>Crud-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../Crud-parent</relativePath>
 	</parent>
-  <artifactId>Crud-web</artifactId>
-  <name>[Crud]-Webapp</name>
-  <description>CRUD webapp</description>
-  <packaging>war</packaging>
-  
-  <properties>
+	
+	<artifactId>Crud-web</artifactId>
+	<packaging>war</packaging>
+	<name>[Crud]-Webapp</name>
+	<description>Crud Webapp war package</description>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
 		<!-- Source Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<!-- <userlibs>${basedir}/src/main/webapp/WEB-INF/lib/</userlibs> -->
+		<userlibs>${basedir}/src/main/webapp/WEB-INF/lib/</userlibs>
 	</properties>
-	
+
 	<!-- ===================== Dependencies ===================== -->
 	<dependencies>
 
 		<!-- *** Internal dependencies *** -->
 
-		<!-- [Crud]-Backend -->
+		<!-- Crud-backend -->
 		<dependency>
 			<groupId>net.yustinus</groupId>
 			<artifactId>Crud-backend</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
-		<!-- [Crud]-Utilities -->
+		
+		<!-- Crud-Utilities -->
 		<dependency>
 			<groupId>net.yustinus</groupId>
 			<artifactId>Crud-utilities</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 
 		<!-- *** External dependencies *** -->
 
@@ -91,7 +96,7 @@
 		</dependency>
 
 		<!-- Spring security framework -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			<version>${spring-security.version}</version>
@@ -215,9 +220,9 @@
 					<artifactId>spring-tx</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 
-		<!-- aspectj AOP for spring AOP framework -->
+		<!-- aspectj AOP used by spring framework -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -280,8 +285,8 @@
 			<artifactId>dom4j</artifactId>
 			<groupId>dom4j</groupId>
 			<version>${dom4j.version}</version>
-		</dependency>
-
+		</dependency> 
+		
 		<dependency>
 			<artifactId>javassist</artifactId>
 			<groupId>org.javassist</groupId>
@@ -309,9 +314,9 @@
 			<artifactId>dynamicreports-core</artifactId>
 			<version>${dynamicreports.version}</version>
 			<exclusions>
-				<exclusion>
-					exclude servlet-api 2.4
-					<groupId>javax.servlet</groupId>
+				<exclusion> -->
+					<!-- exclude servlet-api 2.4 -->
+					<!-- <groupId>javax.servlet</groupId>
 					<artifactId>servlet-api</artifactId>
 				</exclusion>
 				<exclusion>
@@ -319,15 +324,15 @@
 					<groupId>xml-apis</groupId>
 				</exclusion>
 			</exclusions>
-		</dependency> -->
-		<!-- <dependency>
+		</dependency>
+		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>${jasper-report.version}</version>
 			<exclusions>
-				<exclusion>
-					| exclude servlet-api 2.4 |
-					<groupId>javax.servlet</groupId>
+				<exclusion> -->
+					<!-- exclude servlet-api 2.4 -->
+					<!-- <groupId>javax.servlet</groupId>
 					<artifactId>servlet-api</artifactId>
 				</exclusion>
 				<exclusion>
@@ -363,6 +368,7 @@
 			</exclusions>
 		</dependency> -->
 
+	<!-- adapt newer version for JasperReports -->
 	<!-- Jackson JSON De-/Serialization -->
 	<!-- <dependency>
 		<groupId>com.fasterxml.jackson.core</groupId>
@@ -413,6 +419,12 @@
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>${javax.mail.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.netbeans.api</groupId>
+			<artifactId>org-openide-util-lookup</artifactId>
+			<version>RELEASE80</version>
 		</dependency> -->
 
 		<!-- Logger -->
@@ -480,6 +492,22 @@
 				</configuration>
 			</plugin>
 
+			<!-- <plugin>
+				<groupId>org.zeroturnaround</groupId>
+				<artifactId>jrebel-maven-plugin</artifactId>
+				<version>${jrebel-maven-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>generate-rebel-xml</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
 		</plugins>
 	</build>
+
+	
 </project>

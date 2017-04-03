@@ -17,65 +17,65 @@
 		<servlet.api.version>3.1.0</servlet.api.version>
 		
 		<!-- ZK CE framework -->
-		<zk.ce.version>8.0.1.1</zk.ce.version>
+		<zk.ce.version>8.0.2.2</zk.ce.version>
 		<!-- ZK EE framework -->
 		<!-- <zk.ee.version>8.0.1.1-Eval</zk.ee.version> -->
 		<zkoss.zkspring.version>3.2.0</zkoss.zkspring.version>
 		<zkoss.zkspring-security.version>3.2.0</zkoss.zkspring-security.version>
 		
 		<!-- Spring framework -->
-		<spring.version>4.2.5.RELEASE</spring.version>
-		<spring-security.version>4.0.4.RELEASE</spring-security.version>
+		<spring.version>4.3.7.RELEASE</spring.version>
+		<spring-security.version>4.2.2.RELEASE</spring-security.version>
 		
 		<!-- AOP for spring AOP -->
 		<aspectjweaver.version>1.6.8</aspectjweaver.version>
 		
 		<!-- Mybatis framework -->
-		<mybatis.version>3.3.1</mybatis.version>
-		<mybatis-spring.version>1.2.4</mybatis-spring.version>
+		<mybatis.version>3.4.2</mybatis.version>
+		<mybatis-spring.version>1.3.1</mybatis-spring.version>
 		
 		<!-- connection pooling with hikariCP -->
-		<hikariCP.version>2.4.3</hikariCP.version>
+		<hikariCP.version>2.6.1</hikariCP.version>
 		
 		<!-- Google Guava libraries -->
-		<guava.version>19.0</guava.version>
+		<guava.version>21.0</guava.version>
 		
 		<!-- Apache commons -->
 		<commons-lang.version>2.6</commons-lang.version>
-		<commons-lang3.version>3.4</commons-lang3.version>
+		<commons-lang3.version>3.5</commons-lang3.version>
 		<commons-collections.version>3.2.2</commons-collections.version>
 		<commons-collections4.version>4.1</commons-collections4.version>
 		<commons-codec.version>1.10</commons-codec.version>
 		<commons-logging.version>1.2</commons-logging.version>
-		<commons-beanutils.version>1.9.2</commons-beanutils.version>
-		<commons-fileupload.version>1.3.1</commons-fileupload.version>
-		<commons-cli.version>1.3.1</commons-cli.version>
-		<commons-validator.version>1.5.0</commons-validator.version>
-		<commons-io.version>2.4</commons-io.version> <!-- 1.3.2 -->
+		<commons-beanutils.version>1.9.3</commons-beanutils.version>
+		<commons-fileupload.version>1.3.2</commons-fileupload.version>
+		<commons-cli.version>1.4</commons-cli.version>
+		<commons-validator.version>1.6</commons-validator.version>
+		<commons-io.version>2.5</commons-io.version> <!-- 1.3.2 -->
 	    <!-- <org.mod4j.org.apache.commons.version>2.1.0</org.mod4j.org.apache.commons.version> -->
 		
 		<!-- Java Mail -->
-		<javax.mail.version>1.5.5</javax.mail.version>
+		<javax.mail.version>1.5.6</javax.mail.version>
 
 		<mockito-core.version>1.10.19</mockito-core.version>
-		<jaxb-api.version>2.2.12</jaxb-api.version>
+		<jaxb-api.version>2.8.7</jaxb-api.version>
 
 		<!-- Jackson -->
 		<fasterxml.jackson.version>2.7.2</fasterxml.jackson.version>
 
 		<!-- JODA time api -->
-		<joda-time.version>2.9.2</joda-time.version>
+		<joda-time.version>2.9.9</joda-time.version>
 
 		<!-- Tomcat version -->
-		<tomcat.version>8.0.32</tomcat.version>
+		<tomcat.version>8.5.13</tomcat.version>
 
 		<!-- Logging -->
-		<log4j.version>2.6.1</log4j.version>
+		<log4j.version>2.8.1</log4j.version>
 		<slf4j-log4j12.version>1.7.18</slf4j-log4j12.version>
 		<slf4j-api.version>1.7.18</slf4j-api.version>
 
-		<junit.version>4.11</junit.version>
-		<mysql-connector.version>5.1.38</mysql-connector.version>
+		<junit.version>4.12</junit.version>
+		<mysql-connector.version>5.1.41</mysql-connector.version>
 		
 		<!-- PDF Proccesing -->
 		<dynamicreports.version>4.1.0</dynamicreports.version>
@@ -87,15 +87,15 @@
 		<!-- =============================================================== -->
 		<!-- MAVEN PLUGINS -->
 		<!-- =============================================================== -->
-		<maven-war-plugin.version>2.6</maven-war-plugin.version>
-		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
-		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+		<maven-war-plugin.version>3.0.0</maven-war-plugin.version>
+		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
 		<maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
-		<maven-resources-plugin.version>2.7</maven-resources-plugin.version>
-		<maven-source-plugin.version>3.0.0</maven-source-plugin.version><!-- 2.2.1 -->
+		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version><!-- 2.2.1 -->
 		<maven.yuicompressor.version>1.3.2</maven.yuicompressor.version>
-		<maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
-		<maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
+		<maven-assembly-plugin.version>3.0.0</maven-assembly-plugin.version>
+		<maven-shade-plugin.version>3.0.0</maven-shade-plugin.version>
 		<maven-tomcat-plugin.version>2.2</maven-tomcat-plugin.version>
 
 		<!-- JRebel PLUGIN version -->
@@ -103,8 +103,8 @@
 
 		<!-- Java version, Source Encoding -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source.version>1.7</maven.compiler.source.version>
-		<maven.compiler.target.version>1.7</maven.compiler.target.version>
+		<maven.compiler.source.version>1.8</maven.compiler.source.version>
+		<maven.compiler.target.version>1.8</maven.compiler.target.version>
 
 		<!-- Local library -->
 		<user-libs>${basedir}/src/main/webapp/WEB-INF/lib/</user-libs>

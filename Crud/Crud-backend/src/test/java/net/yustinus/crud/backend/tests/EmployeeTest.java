@@ -59,10 +59,11 @@ public class EmployeeTest extends BasicTest{
 	@Test
 	public void addNewEmployee() {
 		EmployeeBean employee = new EmployeeBean();
-		employee.setName("Tristan");
+		employee.setName("Tristan Jun");
 		employee.setGender('M');
 		employee.setAddress("Sleman");
 		employee.setAge(2);
+		employee.setEmployeeId(2);
 		EmployeeBean result = employeeService.addEmployee(employee);
 		Assert.assertNotNull(result);
 	}
@@ -74,7 +75,7 @@ public class EmployeeTest extends BasicTest{
 		employee.setGender('M');
 		employee.setAddress("Jogja");
 		employee.setAge(3);
-		employee.setEmployeeId(3);
+		employee.setEmployeeId(1);
 		EmployeeBean result = employeeService.updateEmployee(employee);
 		Assert.assertNotNull(result);
 		
@@ -82,8 +83,8 @@ public class EmployeeTest extends BasicTest{
 	
 	@Test
 	public void deleteEmployee() {
-		EmployeeBean deletedEmployee = employeeService.searchEmployee(2);		
-		EmployeeBean result = employeeService.updateEmployee(deletedEmployee);
+		EmployeeBean deletedEmployee = employeeService.searchEmployee(1);		
+		EmployeeBean result = employeeService.deleteEmployee(deletedEmployee);
 		Assert.assertNotNull(result);
 		
 	}

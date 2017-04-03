@@ -71,8 +71,9 @@ public class TestSaja {
 		emp.setGender('M');
 		emp.setAddress("Sleman");
 		emp.setAge(2);
-		//boolean f = employeeService.addEmployee(employee)
+		emp.setEmployeeId(3);
 		ts.getEmployeeService().addEmployee(emp);
+		/*ts.getEmployeeService().addEmployee(emp);*/
 	}
 
 	public EmployeeService getEmployeeService() {

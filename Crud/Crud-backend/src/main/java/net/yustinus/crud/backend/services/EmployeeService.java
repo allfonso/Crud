@@ -28,12 +28,15 @@
  */
 package net.yustinus.crud.backend.services;
 
+import org.springframework.stereotype.Service;
+
 import net.yustinus.crud.backend.beans.EmployeeBean;
 
 /**
  * @author Yustinus Nugroho
  *
  */
+@Service
 public interface EmployeeService {
 	
 	public EmployeeBean searchEmployee(int employeeId);

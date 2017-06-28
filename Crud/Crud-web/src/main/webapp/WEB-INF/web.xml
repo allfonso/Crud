@@ -8,9 +8,8 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value> 
-		<!-- We need only the backend core. The backend sample module will be component scanned in the core too -->
-		classpath:applicationContext-backend.xml, 
+		<param-value>
+		<!-- We need only the backend core. The backend sample module will be component scanned in the core too -->		
 		classpath:applicationContext.xml
 		</param-value>
 	</context-param>
@@ -35,6 +34,21 @@
 		<async-supported>true</async-supported> </filter> <filter-mapping> <filter-name>springSecurityFilterChain</filter-name> <url-pattern>/*</url-pattern> 
 		</filter-mapping> <listener> <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class> </listener> -->
 
+	<!-- Spring MVC -->
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- <init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:applicationContext.xml</param-value>
+		</init-param> -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
 	<!-- ZK -->
 	<listener>
 		<description>ZK listener for session cleanup</description>
@@ -91,13 +105,24 @@
 		<param-value>html</param-value> </init-param> <init-param> <param-name>compress</param-name> <param-value>true</param-value> </init-param> </filter> 
 		<filter-mapping> <filter-name>zkFilter</filter-name> <url-pattern>your URI pattern</url-pattern> </filter-mapping> -->
 
-	<!-- DSP (optional) Uncomment it if you want to use DSP However, it is turned on since zksandbox uses DSP to generate CSS. <servlet> <servlet-name>dspLoader</servlet-name> 
-		<servlet-class>org.zkoss.web.servlet.dsp.InterpreterServlet</servlet-class> <init-param> <param-name>class-resource</param-name> <param-value>true</param-value> 
-		</init-param> </servlet> <servlet-mapping> <servlet-name>dspLoader</servlet-name> <url-pattern>*.dsp</url-pattern> </servlet-mapping> -->
+	<!-- DSP (optional) Uncomment it if you want to use DSP However, it is turned on since zksandbox uses DSP to generate CSS.  -->
+	<servlet> 
+		<servlet-name>dspLoader</servlet-name> 
+		<servlet-class>org.zkoss.web.servlet.dsp.InterpreterServlet</servlet-class> 
+		<init-param> 
+			<param-name>class-resource</param-name> 
+			<param-value>true</param-value> 
+		</init-param> 
+	</servlet> 
+	<servlet-mapping> 
+		<servlet-name>dspLoader</servlet-name> 
+		<url-pattern>*.dsp</url-pattern> 
+	</servlet-mapping>
 
 	<!-- [Optional] Session timeout -->
 	<session-config>
 		<session-timeout>60</session-timeout>
+		<tracking-mode>COOKIE</tracking-mode>
 	</session-config>
 
 	<!-- [Optional] MIME mapping -->

@@ -54,7 +54,6 @@ public class TestSaja {
 	
 	@Transactional
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		applicationContext = new ClassPathXmlApplicationContext("applicationContext-backend.xml");
 		

@@ -34,6 +34,7 @@ import net.yustinus.crud.backend.beans.EmployeeBean;
  * @author Yustinus Nugroho
  *
  */
+
 public interface EmployeeMapper {
 
 	public EmployeeBean getEmployeeById(int employeeId);

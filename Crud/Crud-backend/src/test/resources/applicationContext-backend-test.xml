@@ -25,20 +25,22 @@
         http://mybatis.org/schema/mybatis-spring.xsd">
 
 	<context:annotation-config />
-
-	<context:component-scan base-package="net.yustinus.crud.backend" />
+	
+	<context:component-scan base-package="net.yustinus.crud.backend.services" />
 
 	<context:property-placeholder location="classpath:mysql-test.properties" />
 
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="poolName" value="springHikariCP" />
 		<property name="connectionTestQuery" value="SELECT 1" />
-		<property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
+		<property name="jdbcUrl" value="${mysql.url}" />
+		<property name="username" value="${mysql.username}" />
+		<property name="password" value="${mysql.password}" />
 		<property name="dataSourceProperties">
 			<props>
-				<prop key="url">${mysql.url}</prop>
-				<prop key="user">${mysql.username}</prop>
-				<prop key="password">${mysql.password}</prop>
+				<prop key="cachePrepStmts" >true</prop>
+				<prop key="prepStmtCacheSize" >250</prop>
+				<prop key="prepStmtCacheSqlLimit" >2048</prop>
 			</props>
 		</property>
 	</bean>
@@ -48,14 +50,16 @@
 	</bean>
 
 	<!-- mybatis invoke using hikaricp -->
-	<bean name="sqlSeasonFactory" id="sqlSeasonFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean name="sqlSessionFactory" id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="net.yustinus.crud.backend.beans"/>
+		<!-- <property name="mapperLocations" value="classpath*:net/yustinus/crud/backend/mappers/**/*.xml" /> -->
+		
 		<!-- <property name="configLocation" value="classpath:mybatis-backend.xml" /> -->
 	</bean>
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSeasonFactory" />
+		<constructor-arg index="0" ref="sqlSessionFactory" />		
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -64,6 +68,24 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<mybatis:scan base-package="net.yustinus.crud.backend.mappers"/>
+	<!-- <bean id="employeeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+  		<property name="mapperInterface" value="net.yustinus.crud.backend.mappers.EmployeeMapperr" />
+  		<property name="sqlSessionFactory" ref="sqlSeasonFactory" />
+	</bean>
+	
 
+	<bean id="employeeService" class="net.yustinus.crud.backend.services.implementations.EmployeeServiceImpl">
+  		<property name="userMapper" ref="employeeMapper" />
+	</bean>-->
+	
+	<mybatis:scan base-package="net.yustinus.crud.backend.mappers" />
+	<!-- <bean id="employeeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" autowire="byType">
+		<property name="mapperInterface" value="net.yustinus.crud.backend.mappers.EmployeeMapper" />
+	</bean>
+	<bean id="menuMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" autowire="byType">
+		<property name="mapperInterface" value="net.yustinus.crud.backend.mappers.MenuMapper" />
+	</bean> -->
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="net.yustinus.crud.backend.mappers" />
+    </bean> -->
 </beans>

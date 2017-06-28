@@ -44,7 +44,6 @@ public class EmployeeBean {
 	 * 
 	 */
 	public EmployeeBean() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getEmployeeId() {

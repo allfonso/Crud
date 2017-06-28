@@ -3,17 +3,17 @@
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
 
 <!-- ##### ZK taglib ##### -->
-<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<!-- <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?> -->
 
 <!-- ##### Oxitec taglib. Placed in package: zkboost-utils-ui ##### -->
-<?taglib uri="http://www.oxitec.de/tld/oxitec-taglib" prefix="ox"?>
+<!-- <?taglib uri="http://www.oxitec.de/tld/oxitec-taglib" prefix="ox"?> -->
 
 <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:w="http://www.zkoss.org/2005/zk/client"
     xmlns:n="http://www.zkoss.org/2005/zk/native"
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-    <window title="Application Error" mode="modal" border="normal" maximizable="false" closable="true"
+    <!-- <window title="Application Error" mode="modal" border="normal" maximizable="false" closable="true"
         position="center,center" action="hide: slideUp" sclass="mymodal" id="error" onCancel="@command('closeThis')"
         apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('de.oxitec.zkboost.web.base.error.OXErrorMsgVM')">
         <separator />
@@ -28,5 +28,5 @@
         <div align="center">
             <button label="Close" id="Close" onClick="@command('closeThis')" />
         </div>
-    </window>
+    </window> -->
 </zk>

@@ -51,7 +51,6 @@ private static final DigestRandomGenerator drg = new DigestRandomGenerator(new S
 	 * 
 	 */
 	public HashUtility() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public static String hash(String plainPassword) {

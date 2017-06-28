@@ -32,13 +32,14 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import net.yustinus.crud.backend.tests.EmployeeTest;
+import net.yustinus.crud.backend.tests.MenuTest;
 
 /**
  * @author Yustinus Nugroho
  *
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ EmployeeTest.class })
+@Suite.SuiteClasses({EmployeeTest.class, MenuTest.class })
 public class AllTest {
 
 }

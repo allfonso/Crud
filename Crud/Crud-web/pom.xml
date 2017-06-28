@@ -42,7 +42,19 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
-
+		<!-- only for Testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- *** External dependencies *** -->
 
 		<!-- Servlet API -->
@@ -227,6 +239,13 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectjweaver.version}</version>
+		</dependency>
+		
+		<!-- ZK Custom Themes -->
+		<dependency>
+			<groupId>net.yustinus</groupId>
+			<artifactId>CrudZK</artifactId>
+			<version>0.0.1</version>
 		</dependency>
 
 		<!-- ZK framework -->

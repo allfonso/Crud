@@ -52,7 +52,6 @@ public class CrudContextCleaner implements ServletContextListener {
 	 */
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
-		// TODO Auto-generated method stub
 		// This unregister manually JDBC driver, which prevents Tomcat 7 from
 		// complaining about memory leaks to this driver class.
 		Enumeration<Driver> drivers = DriverManager.getDrivers();
@@ -71,8 +70,6 @@ public class CrudContextCleaner implements ServletContextListener {
 	 * @see javax.servlet.ServletContextListener#contextInitialized(javax.servlet.ServletContextEvent)
 	 */
 	@Override
-	public void contextInitialized(ServletContextEvent arg0) {
-		// TODO Auto-generated method stub
-		
-		}
+	public void contextInitialized(ServletContextEvent arg0) {		
+	}
 }

@@ -39,7 +39,7 @@ import org.springframework.test.context.transaction.BeforeTransaction;
  * @author Yustinus Nugroho
  *
  */
-@ContextConfiguration(locations = { "classpath:applicationContext-backend-test.xml" })
+@ContextConfiguration(locations = { "classpath:applicationContext-backend.xml" })
 abstract public class BasicTest extends AbstractTransactionalJUnit4SpringContextTests{
 	
 	final protected Log LOG = LogFactory.getLog(getClass());

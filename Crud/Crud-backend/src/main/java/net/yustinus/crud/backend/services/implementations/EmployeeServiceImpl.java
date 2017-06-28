@@ -54,8 +54,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public EmployeeBean searchEmployee(int employeeId) {
-		// TODO Auto-generated method stub
-		return employeeMapper.getEmployeeById(employeeId);
+		return this.employeeMapper.getEmployeeById(employeeId);
 	}
 
 	/* (non-Javadoc)
@@ -64,8 +63,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public EmployeeBean deleteEmployee(EmployeeBean employee) {
-		// TODO Auto-generated method stub
-		int a = employeeMapper.removeEmployee(employee.getEmployeeId());
+		int a = this.employeeMapper.removeEmployee(employee.getEmployeeId());
 		if (a < 0)
 			return null;
 		else 
@@ -78,8 +76,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public EmployeeBean addEmployee(EmployeeBean employee) {
-		// TODO Auto-generated method stub
-		int a = employeeMapper.insertEmployee(employee);
+		int a = this.employeeMapper.insertEmployee(employee);
 		if (a < 0)
 			return null;
 		else
@@ -92,18 +89,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public EmployeeBean updateEmployee(EmployeeBean employee) {
-		// TODO Auto-generated method stub
-		int a = employeeMapper.editEmployee(employee);
+		int a = this.employeeMapper.editEmployee(employee);
 		if (a < 0)
 			return null;
 		else
 			return employee;
 	}
-	public EmployeeMapper getEmployeeMapper() {
-		return employeeMapper;
-	}
 
-	public void setEmployeeMapper(EmployeeMapper employeeMapper) {
-		this.employeeMapper = employeeMapper;
-	}
 }

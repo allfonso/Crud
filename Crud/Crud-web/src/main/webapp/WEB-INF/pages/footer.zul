@@ -1,0 +1,9 @@
+<div sclass="main-footer">
+	<label value="Yustinus Nugroho" sclass="pull-right hidden-xs" />
+	<span>
+		<label value="Copyright &#169; 2017." style="font-weight:700;" />
+		<span>
+			<label value="Badan Kepegawaian Daerah DIY"/>
+		</span>
+	</span>
+</div>

@@ -1,0 +1,104 @@
+<div id="sidebar" sclass="main-sidebar sidebar" viewModel="@id('sidebarVm') @init('net.yustinus.crud.web.base.SidebarVM')">
+	<div class="user-panel">
+		<div class="pull-left image">
+			<image src="/dist/img/user2-160x160.jpg" class="img-circle" />
+		</div>
+		<div sclass="pull-left info">
+			<label value="Yustinus Nugroho" style="display:block; padding-bottom:5px;" />
+			<!-- Status -->
+			<a href="#">
+				<span class="fa fa-circle text-success" />
+				<label value="Online" style="font-size:11px;" />
+			</a>
+		</div>
+	</div>
+	<div class="sidebar-form">
+		<div sclass="input-group">
+			<textbox sclass="form-control" placeholder="Search..." />
+			<span sclass="input-group-btn">
+				<button type="submit" id="searchbtn" sclass="btn btn-flat" iconSclass="fa fa-search" style="text-shadow:none;" />
+			</span>
+		</div>
+	</div>
+
+	<!-- Sidebar Menu -->
+	<div class="sidebar-menu" children="@load(sidebarVm.listMenu) @template('children')">
+		<template name="children" var="menu">
+			<zk if="${menu.parentMenu.menuParent == 2 }">
+				<div class="header">
+					<label value="@load(menu.parentMenu.menuCaption)" style="font-size:12px;" sclass="header" />
+				</div>
+			</zk>
+			<zk if="${menu.parentMenu.menuParent == 1 }">
+				<zk if="${empty menu.childMenu }">
+					<div>
+						<a iconSclass="@load(menu.parentMenu.menuIcon)" onClick="@global-command('navigation', includeSrc=menu.parentMenu.menuUri)">
+							<label value="@load(menu.parentMenu.menuCaption)" />
+						</a>
+					</div>
+				</zk>
+				<zk if="${not empty menu.childMenu}">
+					<div class="treeview">
+						<a iconSclass="@load(menu.parentMenu.menuIcon)" style="margin-bottom:-5px;">
+							<label value="@load(menu.parentMenu.menuCaption)" />
+							<span class="fa fa-angle-left pull-right-container" />
+						</a>
+						<div class="treeview-menu" children="@load(menu.childMenu) @template('templateChildMenu')">
+							<template name="templateChildMenu" var="childMenu">
+								<div>
+									<a>
+										<label value="@load(childMenu.menuCaption)" />
+									</a>
+								</div>
+							</template>
+						</div>
+					</div>
+				</zk>
+			</zk>
+		</template>
+		<!--	<div class="header">
+			<label value="HEADER" style="font-size:12px;" sclass="header" />
+			</div>
+			
+			<div class="active">
+			<a iconSclass="fa fa-link" onClick="@global-command('navigation', includeSrc='page')">
+			<label value="Page 1" />
+			</a>
+			</div>
+			<div>
+			<a iconSclass="fa fa-link" onClick="@global-command('navigation', includeSrc='page2')">
+			<label value="Page 2" />
+			</a>
+			</div>
+			<div>
+			<a iconSclass="fa fa-link" onClick="@global-command('navigation', includeSrc='page3')">
+			<label value="Page 3" />
+			</a>
+			</div>
+			<div class="treeview">
+			<a href="#" iconSclass="fa fa-link" style="margin-bottom:-5px;">
+			<label value="Multilevel" />
+			<span class="fa fa-angle-left pull-right-container" />
+			</a>
+			<div class="treeview-menu">
+			<div>
+			<a href="#">
+			<label value="Link level 2" />
+			</a>
+			</div>
+			<div>
+			<a href="#">
+			<label value="Link level 2" />
+			</a>
+			</div>
+			</div>
+			</div>
+			<div>
+			<a href="#" iconSclass="fa fa-link">
+			<label value="Another Link" />
+			</a>
+			</div>
+		-->
+	</div>
+
+</div>

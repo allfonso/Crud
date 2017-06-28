@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <param name="Threshold" value="WARN" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} %-6p [%t] %c{1} M[%M] - %m\n" />
+        </layout>
+    </appender>
+
+    <!-- priority | OFF | ALL | TRACE | DEBUG | INFO | WARN | ERROR | FATAL | -->
+
+    <category name="org.springframework">
+        <priority value="WARN" />
+    </category>
+
+    <category name="org.zkoss">
+        <priority value="WARN" />
+    </category>
+    <category name="net.yustinus.crud">
+        <priority value="WARN" />
+    </category>
+
+    <!-- setup the log level -->
+    <!-- level | OFF | ALL | TRACE | DEBUG | INFO | WARN | ERROR | FATAL | -->
+    <root>
+        <priority value="ALL" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+</log4j:configuration>

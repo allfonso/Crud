@@ -8,25 +8,30 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.yustinus.crud.backend.beans.MenuBean;
-import net.yustinus.crud.backend.beans.MenuDto;
+import net.yustinus.crud.backend.dto.MenuDto;
 import net.yustinus.crud.backend.mappers.MenuMapper;
 import net.yustinus.crud.backend.services.MenuService;
 
 @Service("menuService")
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class MenuServiceImpl implements MenuService{
 	
 	@Autowired
 	private MenuMapper menuMapper;
 
-	@Override
-	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public List<MenuDto> getAllMenus() {
+	@Override	
+	public List<MenuBean> getAllMenus() {
 		return this.menuMapper.selectAllMenus();
 	}
 
 	@Override
-	public MenuBean getMenu(int menuId) {
+	public MenuDto getMenu(int menuId) {
 		return this.menuMapper.selectMenu(menuId);
+	}
+
+	@Override
+	public List<MenuDto> getBreadcrumb(int childMenuId) {
+		return this.menuMapper.selectBreadcrumb(childMenuId);
 	}
 
 }

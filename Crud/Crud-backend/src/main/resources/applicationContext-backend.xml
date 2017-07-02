@@ -53,7 +53,7 @@
 	<!-- mybatis invoke using hikaricp -->
 	<bean name="sqlSeasonFactory" id="sqlSeasonFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="typeAliasesPackage" value="net.yustinus.crud.backend.beans"/>
+		<property name="typeAliasesPackage" value="net.yustinus.crud.backend.beans,net.yustinus.crud.backend.dto"/>		
 		<!-- <property name="configLocation" value="classpath:mybatis-backend.xml" /> -->
 	</bean>
 

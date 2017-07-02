@@ -28,7 +28,7 @@
  */
 package net.yustinus.crud.backend.mappers;
 
-import net.yustinus.crud.backend.beans.EmployeeBean;
+import net.yustinus.crud.backend.dto.EmployeeDto;
 
 /**
  * @author Yustinus Nugroho
@@ -37,11 +37,11 @@ import net.yustinus.crud.backend.beans.EmployeeBean;
 
 public interface EmployeeMapper {
 
-	public EmployeeBean getEmployeeById(int employeeId);
+	public EmployeeDto getEmployeeById(int employeeId);
 	
-	public int insertEmployee(EmployeeBean employee);
+	public int insertEmployee(EmployeeDto employee);
 	
-	public int editEmployee(EmployeeBean employee);
+	public int editEmployee(EmployeeDto employee);
 	
 	public int removeEmployee(int employeeId);
 }

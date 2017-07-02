@@ -1,3 +1,11 @@
-<div sclass="content-header">
-<div sclass="breadcrumb"><label value="breadcrumb"/></div>
-</div>
+<zk>
+	<div sclass="breadcrumb" viewModel="@id('breadcrumbVM') @init('net.yustinus.crud.web.base.BreadcrumbVM')">
+		<div children="@load(breadcrumbVM.breadcrumb)">
+			<template name="children" var="menu">
+				<zk if="${menu.menuParent != 2 }">
+					<a label="@load(menu.menuCaption)" iconSclass="@load(menu.menuIcon)" />
+				</zk>
+			</template>
+		</div>
+	</div>
+</zk>

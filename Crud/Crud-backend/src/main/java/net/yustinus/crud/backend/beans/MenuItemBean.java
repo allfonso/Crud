@@ -2,28 +2,30 @@ package net.yustinus.crud.backend.beans;
 
 import java.util.List;
 
-public class MenuDto {
+import net.yustinus.crud.backend.dto.MenuDto;
+
+public class MenuItemBean {
 	
 	private int parentId;
-	private MenuBean parentMenu;
-	private List<MenuBean> childMenu;
+	private MenuDto parentMenu;
+	private List<MenuDto> childMenu;
 	
-	public MenuDto() {
+	public MenuItemBean() {
 	}
 
-	public MenuBean getParentMenu() {
+	public MenuDto getParentMenu() {
 		return parentMenu;
 	}
 
-	public void setParentMenu(MenuBean parentMenu) {
+	public void setParentMenu(MenuDto parentMenu) {
 		this.parentMenu = parentMenu;
 	}
 
-	public List<MenuBean> getChildMenu() {
+	public List<MenuDto> getChildMenu() {
 		return childMenu;
 	}
 
-	public void setChildMenu(List<MenuBean> childMenu) {
+	public void setChildMenu(List<MenuDto> childMenu) {
 		this.childMenu = childMenu;
 	}
 

@@ -4,26 +4,32 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="net.yustinus.crud.backend.mappers.MenuMapper">
-	
+
 	<select id="selectAllMenus" resultMap="rsAllMenu">
-		SELECT m1.`menu_id` AS parentMenuId,
+		SELECT header.`menu_id` AS headerId,
+		header.`name` AS headerName,
+		header.`caption` AS headerCaption,
+		header.`parent` AS headerParent,
+		m1.`menu_id` AS parentMenuId,
 		m1.`name` AS parentName,
 		m1.`caption` AS parentCaption,
 		m1.`uri` AS parentUri,
 		m1.`icon_class` AS parentIcon,
-		m1.`level` AS parentLevel,
 		m1.`parent` AS parentType,
 		m2.`menu_id` AS childMenuId,
 		m2.`name` AS childName,
 		m2.`caption` AS childCaption,
-		m2.`uri` AS childUri,
+		m2.`uri` AS
+		childUri,
 		m2.`icon_class` AS childIcon,
-		m2.`level` AS childLevel,
 		m2.`parent` AS parent
 		FROM
-		vr_menu m1 LEFT JOIN vr_menu m2 ON m2.`parent`= m1.`menu_id`
-		WHERE m1.is_disabled = FALSE AND m1.`parent` IN (1,2)
-		ORDER BY m1.`order`, m2.`order`
+		vr_menu m1
+		LEFT JOIN vr_menu header ON m1.`parent` = header.`menu_id`
+		LEFT JOIN vr_menu m2 ON m1.`menu_id` = m2.`parent`
+		WHERE
+		m1.is_disabled = FALSE AND header.`menu_id` != 2 AND header.`parent` = 2
+		ORDER BY header.`order`, m1.`order`, m2.`order`
 	</select>
 
 	<select id="selectMenu" resultMap="rsMenu">
@@ -31,42 +37,74 @@
 		m1.`name` AS parentName,
 		m1.`caption` AS parentCaption,
 		m1.`uri` AS parentUri,
-		m1.`icon_class` AS parentIcon,
-		m1.`level` AS
-		parentLevel
+		m1.`icon_class` AS parentIcon
 		FROM vr_menu m1
 		WHERE m1.is_disabled = FALSE AND m1.`menu_id` = #{menuId}
 		ORDER BY m1.`order`
 	</select>
 
-	<resultMap type="MenuDto" id="rsAllMenu">
-		<id property="parentId" column="parentMenuId" />
-		<association property="parentMenu" javaType="MenuBean" resultMap="rsMenu">
-			<!-- <id property="menuId" column="parentMenuId" />
-			<result property="menuName" column="parentName" />
-			<result property="menuCaption" column="parentCaption" />
-			<result property="menuUri" column="parentUri" />
-			<result property="menuIcon" column="parentIcon" />
-			<result property="menuLevel" column="parentLevel" /> -->
+	<select id="selectBreadcrumb" resultMap="rsMenu" parameterType="int">
+		SELECT
+		m2.`menu_id` AS parentMenuId,
+		m2.`name` AS parentName,
+		m2.`caption` AS parentCaption,
+		m2.`uri` AS parentUri,
+		m2.`icon_class` AS
+		parentIcon,
+		m2.`parent` AS parentType		
+		FROM
+		(SELECT
+		@r AS _id,
+		@p := @r AS previous,
+		(SELECT
+		@r := `parent`
+		FROM
+		vr_menu
+		WHERE menu_id = _id) AS parent_id,
+		@l := @l + 1 AS lvl
+		FROM
+		(SELECT
+		@r := #{childMenuId},
+		@p
+		:= 0,
+		@l := 0) vars,
+		vr_menu h
+		WHERE @r != 0
+		AND @r != @p) m1
+		JOIN vr_menu m2
+		ON m1._id = m2.`menu_id`
+		WHERE m2.`menu_id` != 2
+		ORDER BY m1.lvl DESC
+	</select>
+
+	<resultMap type="MenuBean" id="rsAllMenu">
+		<id property="headerId" column="headerId" />
+		<association property="headerMenu" javaType="MenuDto">
+			<id property="menuId" column="headerId" />
+			<result property="menuName" column="headerName" />
+			<result property="menuCaption" column="headerCaption" />
+			<result property="menuParent" column="headerParent" />
 		</association>
-		<collection property="childMenu" ofType="MenuBean" notNullColumn="childMenuId">
-			<id property="menuId" column="childMenuId" />
-			<result property="menuName" column="childName" />
-			<result property="menuCaption" column="childCaption" />
-			<result property="menuUri" column="childUri" />
-			<result property="menuIcon" column="childIcon" />
-			<result property="menuLevel" column="childLevel" />
-			<result property="menuParent" column="parent" />
+		<collection property="menus" ofType="MenuItemBean">
+			<id property="parentId" column="parentMenuId" />
+			<association property="parentMenu" javaType="MenuDto" resultMap="rsMenu" />
+			<collection property="childMenu" ofType="MenuDto">
+				<id property="menuId" column="childMenuId" />
+				<result property="menuName" column="childName" />
+				<result property="menuCaption" column="childCaption" />
+				<result property="menuUri" column="childUri" />
+				<result property="menuIcon" column="childIcon" />				
+				<result property="menuParent" column="parent" />
+			</collection>
 		</collection>
 	</resultMap>
 
-	<resultMap type="MenuBean" id="rsMenu">
+	<resultMap type="MenuDto" id="rsMenu">
 		<id property="menuId" column="parentMenuId" />
 		<result property="menuName" column="parentName" />
 		<result property="menuCaption" column="parentCaption" />
 		<result property="menuUri" column="parentUri" />
-		<result property="menuIcon" column="parentIcon" />
-		<result property="menuLevel" column="parentLevel" />
+		<result property="menuIcon" column="parentIcon" />		
 		<result property="menuParent" column="parentType" />
 	</resultMap>
 </mapper>

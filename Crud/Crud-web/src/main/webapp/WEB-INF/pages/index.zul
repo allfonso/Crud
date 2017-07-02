@@ -33,8 +33,7 @@
 	<div sclass="wrapper skin-blue" style="margin:0px;" viewModel="@id('vm') @init('net.yustinus.crud.web.base.NavigationVM')">
 		<include src="/WEB-INF/pages/navbar.zul" />
 		<include src="/WEB-INF/pages/sidebar.zul" />
-		<div sclass="content-wrapper" style="min-height:561px;">
-			<include src="/WEB-INF/pages/breadcrumbs.zul" />
+		<div sclass="content-wrapper" style="min-height:561px;">			
 			<include src="@load(vm.includeSrc)" />
 		</div>
 		<include src="/WEB-INF/pages/footer.zul" style="margin-top:-1px;"/>

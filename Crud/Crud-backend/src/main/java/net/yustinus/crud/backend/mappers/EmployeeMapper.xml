@@ -8,7 +8,7 @@
 	<select id="getEmployeeById" parameterType="int" resultMap="employeeResultMap">
 		SELECT * FROM cr_employee WHERE id = #{employeeId}
 	</select>
-	<resultMap id="employeeResultMap" type="employeeBean">
+	<resultMap id="employeeResultMap" type="EmployeeDto">
 		<result column="id" property="employeeId" />
 		<result column="name" property="name" />
 		<result column="gender" property="gender" />
@@ -16,12 +16,12 @@
 		<result column="age" property="age" />
 	</resultMap>
 
-	<insert id="insertEmployee" parameterType="EmployeeBean" useGeneratedKeys="true" keyProperty="employeeId" keyColumn="id">
+	<insert id="insertEmployee" parameterType="EmployeeDto" useGeneratedKeys="true" keyProperty="employeeId" keyColumn="id">
 		INSERT INTO
 		cr_employee VALUE (#{employeeId}, #{name},#{gender},#{address},#{age})
 	</insert>
 	
-	<update id="editEmployee" parameterType="EmployeeBean">
+	<update id="editEmployee" parameterType="EmployeeDto">
 	UPDATE cr_employee SET
 		NAME = #{name},
 		gender = #{gender},

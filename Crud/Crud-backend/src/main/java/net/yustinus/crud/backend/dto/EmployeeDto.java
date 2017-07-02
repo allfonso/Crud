@@ -26,29 +26,64 @@
  * 
  * Hope this make changes.
  */
-package net.yustinus.crud.web.testutils;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-import org.springframework.test.context.transaction.AfterTransaction;
-import org.springframework.test.context.transaction.BeforeTransaction;
+package net.yustinus.crud.backend.dto;
 
 /**
  * @author Yustinus Nugroho
  *
  */
-@ContextConfiguration(locations = { "classpath:applicationContext-backend.xml" })
-abstract public class BasicTest extends AbstractTransactionalJUnit4SpringContextTests{
+public class EmployeeDto {
 	
-	final protected Log LOG = LogFactory.getLog(getClass());
+	private int employeeId;
+	private String name;
+	private String address;
+	private char gender;
+	private int age;
 	
-	@BeforeTransaction
-	public void startNewTransaction() {
+	/**
+	 * 
+	 */
+	public EmployeeDto() {
 	}
 
-	@AfterTransaction
-	public void endTransaction() {
+	public int getEmployeeId() {
+		return employeeId;
 	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public void setGender(char gender) {
+		this.gender = gender;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
 }

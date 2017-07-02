@@ -8,13 +8,13 @@ import org.zkoss.zk.ui.select.annotation.VariableResolver;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zkplus.spring.DelegatingVariableResolver;
 
-import net.yustinus.crud.backend.beans.MenuDto;
+import net.yustinus.crud.backend.beans.MenuBean;
 import net.yustinus.crud.backend.services.MenuService;
 
 @VariableResolver(DelegatingVariableResolver.class)
 public class SidebarVM {
 	
-	private List<MenuDto> listMenu;	
+	private List<MenuBean> listMenu;	
 	
 	@WireVariable
 	private MenuService menuService;	
@@ -25,17 +25,17 @@ public class SidebarVM {
 	@Init
 	@NotifyChange("menuService")
 	public void init() {		
-		this.listMenu = menuService.getAllMenus();
+		this.setListMenu(menuService.getAllMenus());
 		//MenuBean menu = this.listMenu.get(1);
 		//System.out.println(menu.getMenuUri());
 	}
 
-	public List<MenuDto> getListMenu() {
+	public List<MenuBean> getListMenu() {
 		return listMenu;
 	}
 
-	public void setListMenu(List<MenuDto> listMenu) {
+	public void setListMenu(List<MenuBean> listMenu) {
 		this.listMenu = listMenu;
-	}
+	}	
 	
 }

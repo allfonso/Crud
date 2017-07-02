@@ -22,39 +22,58 @@
 	</div>
 
 	<!-- Sidebar Menu -->
-	<div class="sidebar-menu" children="@load(sidebarVm.listMenu) @template('children')">
-		<template name="children" var="menu">
-			<zk if="${menu.parentMenu.menuParent == 2 }">
-				<div class="header">
-					<label value="@load(menu.parentMenu.menuCaption)" style="font-size:12px;" sclass="header" />
-				</div>
-			</zk>
-			<zk if="${menu.parentMenu.menuParent == 1 }">
-				<zk if="${empty menu.childMenu }">
-					<div>
-						<a iconSclass="@load(menu.parentMenu.menuIcon)" onClick="@global-command('navigation', includeSrc=menu.parentMenu.menuUri)">
-							<label value="@load(menu.parentMenu.menuCaption)" />
-						</a>
-					</div>
-				</zk>
-				<zk if="${not empty menu.childMenu}">
-					<div class="treeview">
-						<a iconSclass="@load(menu.parentMenu.menuIcon)" style="margin-bottom:-5px;">
-							<label value="@load(menu.parentMenu.menuCaption)" />
-							<span class="fa fa-angle-left pull-right-container" />
-						</a>
-						<div class="treeview-menu" children="@load(menu.childMenu) @template('templateChildMenu')">
-							<template name="templateChildMenu" var="childMenu">
-								<div>
-									<a>
-										<label value="@load(childMenu.menuCaption)" />
-									</a>
-								</div>
-							</template>
+	<div class="sidebar-menu" children="@load(sidebarVm.listMenu) @template('templateHeader')">
+		<template name="templateHeader" var="header">
+			<div class="header">
+				<label value="@load(header.headerMenu.menuCaption)" style="font-size:12px;" sclass="header" />
+			</div>
+			<div children="@load(header.menus) @template('templateMainMenu')">
+				<template name="templateMainMenu" var="mainMenu">
+					<zk if="${empty mainMenu.childMenu }">
+						<div>
+							<a iconSclass="@load(mainMenu.parentMenu.menuIcon)" onClick="@global-command('navigation', includeSrc=mainMenu.parentMenu.menuUri)">
+								<label value="@load(mainMenu.parentMenu.menuCaption)" />
+							</a>
 						</div>
-					</div>
+					</zk>
+					<zk if="${not empty mainMenu.childMenu }">
+						<div class="treeview">
+							<a iconSclass="@load(mainMenu.parentMenu.menuIcon)" style="margin-bottom:-5px;">
+								<label value="@load(mainMenu.parentMenu.menuCaption)" />
+								<span class="fa fa-angle-left pull-right-container" />
+							</a>
+							<div class="treeview-menu" children="@load(mainMenu.childMenu) @template('templateChildMenu')">
+								<template name="templateChildMenu" var="treeMenu">
+									<div>
+										<a>
+											<label value="@load(treeMenu.menuCaption)" />
+										</a>
+									</div>
+								</template>
+							</div>
+						</div>
+					</zk>
+				</template>
+			</div>
+
+			<!-- <zk if="${empty header.menus.childMenu }">
+				<div class="treeview">
+				<a iconSclass="@load(menu.parentMenu.menuIcon)" style="margin-bottom:-5px;">
+				<label value="@load(menu.parentMenu.menuCaption)" />
+				<span class="fa fa-angle-left pull-right-container" />
+				</a>
+				<div class="treeview-menu" children="@load(menu.childMenu) @template('templateChildMenu')">
+				<template name="templateChildMenu" var="childMenu">
+				<div>
+				<a>
+				<label value="@load(childMenu.menuCaption)" />
+				</a>
+				</div>
+				</template>
+				</div>
+				</div>
 				</zk>
-			</zk>
+				</zk> -->
 		</template>
 		<!--	<div class="header">
 			<label value="HEADER" style="font-size:12px;" sclass="header" />

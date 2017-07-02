@@ -32,7 +32,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import net.yustinus.crud.backend.beans.EmployeeBean;
+import net.yustinus.crud.backend.dto.EmployeeDto;
 import net.yustinus.crud.backend.services.EmployeeService;
 import net.yustinus.crud.backend.testutils.BasicTest;
 
@@ -52,39 +52,39 @@ public class EmployeeTest extends BasicTest{
 	
 	@Test
 	public void getEmployeeById() {
-		EmployeeBean employee = employeeService.searchEmployee(1);
+		EmployeeDto employee = employeeService.searchEmployee(1);
 		Assert.assertNotNull(employee);
 	}
 	
 	@Test
 	public void addNewEmployee() {
-		EmployeeBean employee = new EmployeeBean();
+		EmployeeDto employee = new EmployeeDto();
 		employee.setName("Tristan Jun");
 		employee.setGender('M');
 		employee.setAddress("Sleman");
 		employee.setAge(2);
 		employee.setEmployeeId(2);
-		EmployeeBean result = employeeService.addEmployee(employee);
+		EmployeeDto result = employeeService.addEmployee(employee);
 		Assert.assertNotNull(result);
 	}
 	
 	@Test
 	public void updateEmployee() {
-		EmployeeBean employee = new EmployeeBean();
+		EmployeeDto employee = new EmployeeDto();
 		employee.setName("Tristan J");
 		employee.setGender('M');
 		employee.setAddress("Jogja");
 		employee.setAge(3);
 		employee.setEmployeeId(1);
-		EmployeeBean result = employeeService.updateEmployee(employee);
+		EmployeeDto result = employeeService.updateEmployee(employee);
 		Assert.assertNotNull(result);
 		
 	}
 	
 	@Test
 	public void deleteEmployee() {
-		EmployeeBean deletedEmployee = employeeService.searchEmployee(1);		
-		EmployeeBean result = employeeService.deleteEmployee(deletedEmployee);
+		EmployeeDto deletedEmployee = employeeService.searchEmployee(1);		
+		EmployeeDto result = employeeService.deleteEmployee(deletedEmployee);
 		Assert.assertNotNull(result);
 		
 	}

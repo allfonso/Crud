@@ -84,16 +84,16 @@
   color: #4b646f;
   background: #1a2226;
 }
-.skin-blue .sidebar-menu > div > a {
+.skin-blue .sidebar-menu > div > div > a {
   border-left: 3px solid transparent;  
 }
-.skin-blue .sidebar-menu > div:hover > a,
-.skin-blue .sidebar-menu > div.active > a {
+.skin-blue .sidebar-menu > div > div:hover > a,
+.skin-blue .sidebar-menu > div > div.active > a {
   color: #ffffff;
   background: #1e282c;
   border-left-color: #3c8dbc;
 }
-.skin-blue .sidebar-menu > div > .treeview-menu {
+.skin-blue .sidebar-menu > div> div > .treeview-menu {
   margin: 0 1px;
   background: #2c3b41;
 }
@@ -103,11 +103,11 @@
 .skin-blue .sidebar a:hover {
   text-decoration: none;
 }
-.skin-blue .treeview-menu > li > a {
+.skin-blue .treeview-menu > div > a {
   color: #8aa4af;
 }
-.skin-blue .treeview-menu > li.active > a,
-.skin-blue .treeview-menu > li > a:hover {
+.skin-blue .treeview-menu > div.active > a,
+.skin-blue .treeview-menu > div > a:hover {
   color: #ffffff;
 }
 .skin-blue .sidebar-form {

@@ -34,7 +34,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.yustinus.crud.backend.beans.EmployeeBean;
+import net.yustinus.crud.backend.dto.EmployeeDto;
 import net.yustinus.crud.backend.services.EmployeeService;
 
 /**
@@ -58,14 +58,14 @@ public class TestSaja {
 		applicationContext = new ClassPathXmlApplicationContext("applicationContext-backend.xml");
 		
 		TestSaja ts = (TestSaja) applicationContext.getBean("testSaja");
-		EmployeeBean eb = ts.getEmployeeService().searchEmployee(1);
+		EmployeeDto eb = ts.getEmployeeService().searchEmployee(1);
 		System.out.println(eb.getEmployeeId());
 		System.out.println(eb.getName());
 		System.out.println(eb.getGender());
 		System.out.println(eb.getAddress());
 		System.out.println(eb.getAge());
 		
-		EmployeeBean emp = new EmployeeBean();
+		EmployeeDto emp = new EmployeeDto();
 		emp.setName("Tristan");
 		emp.setGender('M');
 		emp.setAddress("Sleman");

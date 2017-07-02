@@ -22,8 +22,9 @@ body {
 }
 .z-label, .z-radio-content, .z-checkbox-content, .z-loading, .z-a {
 	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size:14px;
+	font-size:inherit;
 }
+
 body {
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
@@ -329,17 +330,17 @@ position: absolute;
   position: relative;
   padding: 15px 15px 0 15px;
 }
-.content-header > h1 {
+.content-header > .h1 {
   margin: 0;
   font-size: 24px;
 }
-.content-header > h1 > small {
+.content-header > .h1.small {
   font-size: 15px;
   display: inline-block;
   padding-left: 4px;
   font-weight: 300;
 }
-.content-header > .breadcrumb {
+.content-header > div > .breadcrumb {
   float: right;
   background: transparent;
   margin-top: 0;
@@ -351,21 +352,23 @@ position: absolute;
   right: 10px;
   border-radius: 2px;
 }
-.content-header > .breadcrumb > li > a {
+.content-header > div > .breadcrumb > div > a {
   color: #444;
   text-decoration: none;
   display: inline-block;
 }
-.content-header > .breadcrumb > li > a > .fa,
-.content-header > .breadcrumb > li > a > .glyphicon,
-.content-header > .breadcrumb > li > a > .ion {
+.content-header > div > .breadcrumb > div > a > .fa,
+.content-header > div > .breadcrumb > div > a > .glyphicon,
+.content-header > div > .breadcrumb > div > a > .ion {
   margin-right: 5px;
 }
-.content-header > .breadcrumb > li + li:before {
+.content-header > div > .breadcrumb > div > a + a:before {
   content: '>\00a0';
+  padding: 0 5px;
+  color: #ccc;  
 }
 @media (max-width: 991px) {
-  .content-header > .breadcrumb {
+  .content-header > div > .breadcrumb {
     position: relative;
     margin-top: 5px;
     top: 0;
@@ -374,7 +377,7 @@ position: absolute;
     background: #d2d6de;
     padding-left: 10px;
   }
-  .content-header > .breadcrumb li:before {
+  .content-header > div > .breadcrumb > div > a:before {
     color: #97a0b3;
   }
 }
@@ -546,25 +549,25 @@ position: absolute;
   margin: 0;
   padding: 0;
 }
-.sidebar-menu > div {
+.sidebar-menu > div > div {
   position: relative;
   margin: 0;
   padding: 0;
 }
-.sidebar-menu > div > a {
+.sidebar-menu > div > div > a {
   padding: 12px 5px 12px 15px;
   display: block;
 }
-.sidebar-menu > div > a > .fa,
-.sidebar-menu > div > a > .glyphicon,
-.sidebar-menu > div > a > .ion {
+.sidebar-menu > div > div > a > .fa,
+.sidebar-menu > div > div > a > .glyphicon,
+.sidebar-menu > div > div > a > .ion {
   width: 20px;
 }
-.sidebar-menu > div .label,
-.sidebar-menu > div .badge {
+.sidebar-menu > div > div .label,
+.sidebar-menu > div > div .badge {
   margin-right: 5px;
 }
-.sidebar-menu > div .badge {
+.sidebar-menu > div > div .badge {
   margin-top: 3px;
 }
 .sidebar-menu div.header {
@@ -641,37 +644,37 @@ position: absolute;
     width: 50px !important;
     z-index: 850;
   }
-  .sidebar-collapse .sidebar-menu > div {
+  .sidebar-collapse .sidebar-menu > div > div {
     position: relative;
   }
-  .sidebar-collapse .sidebar-menu > div > a {
+  .sidebar-collapse .sidebar-menu > div > div > a {
     margin-right: 0;
   }
-  .sidebar-collapse .sidebar-menu > div > a > span {
+  .sidebar-collapse .sidebar-menu > div > div > a > span {
     border-top-right-radius: 4px;
   }
-  .sidebar-collapse .sidebar-menu > div:not(.treeview) > a > span {
+  .sidebar-collapse .sidebar-menu > div > div:not(.treeview) > a > span {
     border-bottom-right-radius: 4px;
   }
-  .sidebar-collapse .sidebar-menu > div > .treeview-menu {
+  .sidebar-collapse .sidebar-menu > div > div > .treeview-menu {
     padding-top: 5px;
     padding-bottom: 5px;
     border-bottom-right-radius: 4px;
   }
-  .sidebar-collapse .sidebar-menu > div:hover > a > span:not(.pull-right),
-  .sidebar-collapse .sidebar-menu > div:hover > .treeview-menu {
+  .sidebar-collapse .sidebar-menu > div > div:hover > a > span:not(.pull-right),
+  .sidebar-collapse .sidebar-menu > div > div:hover > .treeview-menu {
     display: block !important;
     position: absolute;
     width: 180px;
     left: 50px;
   }
-  .sidebar-collapse .sidebar-menu > div:hover > a > span {
+  .sidebar-collapse .sidebar-menu > div > div:hover > a > span {
     top: 0;
     margin-left: -3px;
     padding: 12px 5px 12px 20px;
     background-color: inherit;
   }
-  .sidebar-collapse .sidebar-menu > div:hover > a > .pull-right-container {
+  .sidebar-collapse .sidebar-menu > div > div:hover > a > .pull-right-container {
     position: relative!important;
     float: right;
     width: auto!important;
@@ -679,18 +682,18 @@ position: absolute;
     top: -22px !important;
     z-index: 900;
   }
-  .sidebar-collapse .sidebar-menu > div:hover > a > .pull-right-container > .label:not(:first-of-type) {
+  .sidebar-collapse .sidebar-menu > div > div:hover > a > .pull-right-container > .label:not(:first-of-type) {
     display: none;
   }
-  .sidebar-collapse .sidebar-menu > div:hover > .treeview-menu {
+  .sidebar-collapse .sidebar-menu > div > div:hover > .treeview-menu {
     top: 42px;
     margin-left: 0;
   }
   .sidebar-collapse .main-sidebar .user-panel > .info,
   .sidebar-collapse .sidebar-form,
-  .sidebar-collapse .sidebar-menu > div > a > span,
-  .sidebar-collapse .sidebar-menu > div > .treeview-menu,
-  .sidebar-collapse .sidebar-menu > div > a > .pull-right,
+  .sidebar-collapse .sidebar-menu > div > div > a > span,
+  .sidebar-collapse .sidebar-menu > div > div > .treeview-menu,
+  .sidebar-collapse .sidebar-menu > div > div > a > .pull-right,
   .sidebar-collapse .sidebar-menu div.header {
     display: none !important;
     -webkit-transform: translateZ(0);

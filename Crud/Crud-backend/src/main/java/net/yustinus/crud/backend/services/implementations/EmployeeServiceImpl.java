@@ -33,7 +33,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.yustinus.crud.backend.beans.EmployeeBean;
+import net.yustinus.crud.backend.dto.EmployeeDto;
 import net.yustinus.crud.backend.mappers.EmployeeMapper;
 import net.yustinus.crud.backend.services.EmployeeService;
 
@@ -53,7 +53,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public EmployeeBean searchEmployee(int employeeId) {
+	public EmployeeDto searchEmployee(int employeeId) {
 		return this.employeeMapper.getEmployeeById(employeeId);
 	}
 
@@ -62,7 +62,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public EmployeeBean deleteEmployee(EmployeeBean employee) {
+	public EmployeeDto deleteEmployee(EmployeeDto employee) {
 		int a = this.employeeMapper.removeEmployee(employee.getEmployeeId());
 		if (a < 0)
 			return null;
@@ -75,7 +75,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public EmployeeBean addEmployee(EmployeeBean employee) {
+	public EmployeeDto addEmployee(EmployeeDto employee) {
 		int a = this.employeeMapper.insertEmployee(employee);
 		if (a < 0)
 			return null;
@@ -88,7 +88,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 */
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public EmployeeBean updateEmployee(EmployeeBean employee) {
+	public EmployeeDto updateEmployee(EmployeeDto employee) {
 		int a = this.employeeMapper.editEmployee(employee);
 		if (a < 0)
 			return null;

@@ -30,7 +30,7 @@ package net.yustinus.crud.backend.services;
 
 import org.springframework.stereotype.Service;
 
-import net.yustinus.crud.backend.beans.EmployeeBean;
+import net.yustinus.crud.backend.dto.EmployeeDto;
 
 /**
  * @author Yustinus Nugroho
@@ -39,12 +39,12 @@ import net.yustinus.crud.backend.beans.EmployeeBean;
 @Service
 public interface EmployeeService {
 	
-	public EmployeeBean searchEmployee(int employeeId);
+	public EmployeeDto searchEmployee(int employeeId);
 	
-	public EmployeeBean deleteEmployee(EmployeeBean employee);
+	public EmployeeDto deleteEmployee(EmployeeDto employee);
 	
-	public EmployeeBean addEmployee(EmployeeBean employee);
+	public EmployeeDto addEmployee(EmployeeDto employee);
 	
-	public EmployeeBean updateEmployee(EmployeeBean employee);
+	public EmployeeDto updateEmployee(EmployeeDto employee);
 
 }

@@ -26,8 +26,6 @@ public class SidebarVM {
 	@NotifyChange("menuService")
 	public void init() {		
 		this.setListMenu(menuService.getAllMenus());
-		//MenuBean menu = this.listMenu.get(1);
-		//System.out.println(menu.getMenuUri());
 	}
 
 	public List<MenuBean> getListMenu() {

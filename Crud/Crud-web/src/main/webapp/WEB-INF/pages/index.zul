@@ -30,11 +30,11 @@
 
 
 <zk xmlns:h="html" xmlns:x="xhtml" xmlns:ca="client/attribute" xmlns:n="native">
-	<div sclass="wrapper skin-blue" style="margin:0px;" viewModel="@id('vm') @init('net.yustinus.crud.web.base.NavigationVM')">
+	<div sclass="wrapper skin-blue" style="margin:0px;">
 		<include src="/WEB-INF/pages/navbar.zul" />
 		<include src="/WEB-INF/pages/sidebar.zul" />
-		<div sclass="content-wrapper" style="min-height:561px;">			
-			<include src="@load(vm.includeSrc)" />
+		<div sclass="content-wrapper" style="min-height:561px;" viewModel="@id('navigationVm') @init('net.yustinus.crud.web.base.NavigationVM')">			
+			<include src="@load(navigationVm.contentUri)" />
 		</div>
 		<include src="/WEB-INF/pages/footer.zul" style="margin-top:-1px;"/>
 	</div>

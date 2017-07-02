@@ -31,7 +31,7 @@
 				<template name="templateMainMenu" var="mainMenu">
 					<zk if="${empty mainMenu.childMenu }">
 						<div>
-							<a iconSclass="@load(mainMenu.parentMenu.menuIcon)" onClick="@global-command('navigation', includeSrc=mainMenu.parentMenu.menuUri)">
+							<a iconSclass="@load(mainMenu.parentMenu.menuIcon)" onClick="@global-command('navigation', menu=mainMenu.parentMenu)">
 								<label value="@load(mainMenu.parentMenu.menuCaption)" />
 							</a>
 						</div>
@@ -45,7 +45,7 @@
 							<div class="treeview-menu" children="@load(mainMenu.childMenu) @template('templateChildMenu')">
 								<template name="templateChildMenu" var="treeMenu">
 									<div>
-										<a>
+										<a onClick="@global-command('navigation', menu=treeMenu)">
 											<label value="@load(treeMenu.menuCaption)" />
 										</a>
 									</div>

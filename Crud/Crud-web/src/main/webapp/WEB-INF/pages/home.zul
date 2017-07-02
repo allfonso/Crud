@@ -2,7 +2,7 @@
 	<div sclass="content-header">
 		<label value="Page Header" sclass="h1" />
 		<label value="Optional description" sclass="h1 small" style="line-height:1; color:#777;" />
-		<include src="/WEB-INF/pages/breadcrumbs.zul"/>
+		<include src="@init('/WEB-INF/pages/breadcrumbs.zul')"/>
 	</div>
 	<div sclass="content">
 		<window border="normal" title="Yustinus">

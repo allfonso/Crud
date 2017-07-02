@@ -1,0 +1,11 @@
+<zk>
+	<div sclass="content-header">
+		<label value="Page Header" sclass="h1" />
+		<label value="Optional description" sclass="h1 small" style="line-height:1; color:#777;" />
+		<include src="@init('/WEB-INF/pages/breadcrumbs.zul')"/>
+	</div>
+	<div sclass="content" viewModel="@id('specimetVm') @init('net.yustinus.crud.web.speciment.SpecimentVM')">
+		<label value="@load(specimetVm.te)"/>
+		<button label="Go" onClick="@command('test')"/>
+	</div>
+</zk>

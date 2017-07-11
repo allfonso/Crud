@@ -7,9 +7,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {		
 	
-	@RequestMapping(value="/welcome", method=RequestMethod.GET)
-	public String index() {				
+	@RequestMapping(value={"/login","/"}, method={RequestMethod.GET, RequestMethod.POST})
+	public String login() {	
+		System.out.println("request mapping : login");
+		return "login.zul";
+	}
+	
+	@RequestMapping(value="/welcome", method={RequestMethod.GET, RequestMethod.POST})
+	public String welcome() {	
+		System.out.println("request mapping : welcome");
 		return "index.zul";
 	}
-
+	
 }

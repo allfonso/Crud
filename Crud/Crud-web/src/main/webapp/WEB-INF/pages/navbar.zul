@@ -7,24 +7,24 @@
 			<label value="veronica" style="font-size:20px; height:50px; line-height:50px;" />
 		</div>
 		<div sclass="logo-mini">
-			<n:b style="margin-left:-7px;">SIM</n:b>					
+			<n:b style="margin-left:-7px;">SIM</n:b>
 		</div>
 	</a>
 	<a href="#" sclass="sidebar-toggle skin-blue" style="line-height:20px;" ca:data-toggle="offcanvas">
 		<span sclass="sr-only">Toggle navigation</span>
 	</a>
-	<hlayout sclass="pull-right">
-		<a id="atask" iconSclass="fa fa-envelope-o" popup="msgpp, position=after_end, type=toggle" sclass="nav navbar-nav">
+	<hlayout sclass="navbar-custom-menu">
+		<a id="atask" iconSclass="fa fa-envelope-o" popup="msgpp, position=after_end, type=toggle" sclass="nav navbar-nav" style="margin-right:-5px;">
 			<label value="4" sclass="badge badge-position label-success" />
 		</a>
-		<a id="anoti" iconSclass="fa fa-bell-o" popup="notipp, position=after_end, type=toggle" sclass="nav navbar-nav">
+		<a id="anoti" iconSclass="fa fa-bell-o" popup="notipp, position=after_end, type=toggle" sclass="nav navbar-nav" style="margin-right:-5px;">
 			<label value="8" sclass="badge badge-position label-warning" />
 		</a>
-		<a id="amsg" iconSclass="fa fa-flag-o" popup="taskpp, position=after_end, type=toggle" sclass="nav navbar-nav">
+		<a id="amsg" iconSclass="fa fa-flag-o" popup="taskpp, position=after_end, type=toggle" sclass="nav navbar-nav" style="margin-right:-5px;">
 			<label value="5" sclass="badge badge-position label-danger" />
 		</a>
 		<a id="auser" popup="userpp, position=after_end, type=toggle" sclass="nav navbar-nav">
-			<image src="/dist/img/user2-160x160.jpg"
+			<image src="/res/adminLte/dist/img/user2-160x160.jpg"
 				style="
 				float: left;
   				width: 23px;
@@ -36,67 +36,30 @@
 			<label value="Alexander Pierce" sclass="hidden-xs" style="font-size:inherit;" />
 		</a>
 	</hlayout>
-	<popup id="msgpp" sclass="popup" style="max-width:300px;" width="280px;">
+	<popup id="msgpp" sclass="popup">
 		<label value=" 4 Messages" sclass="header" style="display:block; margin:-10px -10px 0px -10px;" />
-		<a href="#" sclass="menu" style="margin:0px -10px 0px -10px; padding:5px 5px;">
-			<vlayout spacing="0">
-				<image tooltiptext="Yustinus" src="/dist/img/user2-160x160.jpg" sclass="img-circle pull-left" style="width: 45px;height: 45px; float:left;" />
-				<label value="Isidorus Tristan Junaryono, S.T." sclass="msg-title" style="margin-top:5px;" />
-				<label value="Why not buy a new awesome theme?" sclass="msg-body" style="" />
-				<span sclass="msg-time">
-					<span class="fa fa-clock-o" />
-					<label value="15/05/2017" style="font-size:11px;"/>
-				</span>
-			</vlayout>
-		</a>
-		<a href="#" sclass="menu" style="margin:0px -10px 0px -10px; padding:5px 5px;">
-			<vlayout spacing="0">
-				<image tooltiptext="Yustinus" src="/dist/img/user2-160x160.jpg" sclass="img-circle pull-left" style="width: 45px;height: 45px; float:left;" />
-				<label value="Isidorus Tristan Junaryono, S.T." sclass="msg-title" style="margin-top:5px;" />
-				<label value="Why not buy a new awesome theme?" sclass="msg-body" style="" />
-				<span sclass="msg-time">
-					<span class="fa fa-clock-o" />
-					<label value="15/05/2017" style="font-size:11px;"/>
-				</span>
-			</vlayout>
-		</a>
-		<a href="#" sclass="menu" style="margin:0px -10px 0px -10px; padding:5px 5px;">
-			<vlayout spacing="0">
-				<image tooltiptext="Yustinus" src="/dist/img/user2-160x160.jpg" sclass="img-circle pull-left" style="width: 45px;height: 45px; float:left;" />
-				<label value="Isidorus Tristan Junaryono, S.T." sclass="msg-title" style="margin-top:5px;" />
-				<label value="Why not buy a new awesome theme?" sclass="msg-body" style="" />
-				<span sclass="msg-time">
-					<span class="fa fa-clock-o" />
-					<label value="15/05/2017" style="font-size:11px;"/>
-				</span>
-			</vlayout>
-		</a>
-
-		<a href="#" label="See All messages" sclass="footer" style="margin: 0px -10px 0px -10px;" />
+		<div>
+			<a sclass="menu" style="margin:0px -10px 0px -10px; padding:5px 5px;">
+				<vlayout spacing="0">
+					<image tooltiptext="Yustinus" src="/res/adminLte/dist/img/user2-160x160.jpg" sclass="img-circle pull-left" style="width: 45px;height: 45px; float:left;" />
+					<label value="Isidorus Tristan Junaryono, S.T." sclass="msg-title" style="margin-top:5px;" />
+					<label value="Why not buy a new awesome theme?" sclass="msg-body" style="" />
+					<span sclass="msg-time">
+						<span class="fa fa-clock-o" />
+						<label value="15/05/2017" style="font-size:11px;" />
+					</span>
+				</vlayout>
+			</a>
+		</div>
+		<a href="#" label="See All messages" sclass="footer" style="display:block; margin: 0px -10px 0px -10px;" />
 
 	</popup>
-	<popup id="notipp" sclass="menu menu-pink" width="240px">
-		<a label="8 Notifications" sclass="header" iconSclass="z-icon-exclamation-triangle" />
-		<vlayout spacing="0">
-			<a iconSclass="btn btn-xs no-hover btn-pink z-icon-comment" href="#">
-				<label>New Comments</label>
-				<label value="+12" class="badge badge-info pull-right" />
-			</a>
-			<a iconSclass="btn btn-xs no-hover btn-primary z-icon-user" href="#">
-				<label>Bob just signed up as an editor ...</label>
-			</a>
-			<a iconSclass="btn btn-xs no-hover btn-success z-icon-shopping-cart" href="#">
-				<label>New Orders</label>
-				<label value="+8" class="badge badge-info pull-right" />
-			</a>
-			<a iconSclass="btn btn-xs no-hover btn-info z-icon-twitter" href="#">
-				<label>Followers</label>
-				<label value="+11" class="badge badge-info pull-right" />
-			</a>
-			<a label="See all notifications" href="#">
-				<span class="z-icon-arrow-right" />
-			</a>
-		</vlayout>
+	<popup id="notipp" sclass="popup">
+		<label value=" 8 Notification(s)" sclass="header" style="display:block; margin:-10px -10px 0px -10px;" />
+		<div>
+			<a iconSclass="fa fa-users text-aqua" sclass="menu" style="display:block;margin:0px -10px 0px -10px; padding:10px 10px; font-size:14px;" label="5 member(s) joined today"/>				
+		</div>
+		<a href="#" label="See All Notifications" sclass="footer" style="display:block; margin: 0px -10px 0px -10px;" />
 	</popup>
 	<popup id="taskpp" sclass="menu" width="240px">
 		<a label="5 Messages" sclass="header" iconSclass="z-icon-envelope-o" />
@@ -147,7 +110,7 @@
 	</popup>
 	<popup id="userpp" sclass="skin-blue user-header">
 		<div sclass="user-header skin-blue" style="margin:-10px;">
-			<image src="/dist/img/user2-160x160.jpg" class="img-circle" />
+			<image src="/res/adminLte/dist/img/user2-160x160.jpg" sclass="img-circle" />
 			<vlayout style="margin-top:10px;">
 				<label value="Yustinus Nugroho" style="color: rgba(255,255,255,0.8);font-size: 17px;margin-top: 10px; text-align:center;" width="100%" />
 				<label value="198506252010011012" style="color: rgba(255,255,255,0.8);font-size: 12px;margin-top: 5px;" />

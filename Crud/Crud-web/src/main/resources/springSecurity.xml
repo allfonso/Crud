@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p" xmlns:zkc="http://www.zkoss.org/2008/zkspring/core" xmlns:zksp="http://www.zkoss.org/2008/zkspring/security"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd        
+        http://www.springframework.org/schema/security 
+        http://www.springframework.org/schema/security/spring-security-4.2.xsd
+        http://www.zkoss.org/2008/zkspring/core 
+        http://www.zkoss.org/2008/zkspring/core/zkspring-core.xsd 
+        http://www.zkoss.org/2008/zkspring/security 
+        http://www.zkoss.org/2008/zkspring/security/zkspring-security.xsd">
+
+	<global-method-security secured-annotations="enabled" pre-post-annotations="enabled" />
+
+	<http auto-config="true" use-expressions="false">	
+		<intercept-url pattern="/zkau/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/res/adminLte/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/**" access="ROLE_USER" />
+		<form-login 
+			login-page="/login"
+			default-target-url="/welcome" 
+			authentication-failure-url="/login?error"
+		/> 
+		<logout logout-success-url="/login?logout" />
+				
+		<!-- <intercept-url pattern="/secure/extreme/**" access="ADMIN_MUTASI" /> <intercept-url pattern="/secure/**" access="IS_AUTHENTICATED_REMEMBERED" /> <intercept-url pattern="/zkau/**" access="IS_AUTHENTICATED_ANONYMOUSLY" 
+			/> <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" /> <form-login login-page="/login" authentication-failure-url="/login?login_error=1" /> <logout logout-success-url="/index.zul" invalidate-session="true" 
+			/> -->
+		<!-- Following is list of ZK Spring Security custom filters. They needs to be exactly in the same order as shown below in order to work. -->
+		<!-- <custom-filter ref="zkDesktopReuseFilter" position="FIRST" /> <custom-filter ref="zkDisableSessionInvalidateFilter" before="FORM_LOGIN_FILTER" /> <custom-filter ref="zkEnableSessionInvalidateFilter" 
+			before="FILTER_SECURITY_INTERCEPTOR" /> <custom-filter ref="zkLoginOKFilter" after="FILTER_SECURITY_INTERCEPTOR" /> <custom-filter ref="zkError403Filter" after="LOGOUT_FILTER" /> -->
+		<csrf disabled="true"/>	
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="isidorus" authorities="ROLE_USER" password="111" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>

@@ -1,7 +1,7 @@
 <div id="sidebar" sclass="main-sidebar sidebar" viewModel="@id('sidebarVm') @init('net.yustinus.crud.web.base.SidebarVM')">
 	<div class="user-panel">
 		<div class="pull-left image">
-			<image src="/dist/img/user2-160x160.jpg" class="img-circle" />
+			<image src="/res/adminLte/dist/img/user2-160x160.jpg" class="img-circle" />
 		</div>
 		<div sclass="pull-left info">
 			<label value="Yustinus Nugroho" style="display:block; padding-bottom:5px;" />

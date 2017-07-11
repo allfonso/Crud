@@ -6,4 +6,7 @@
 		<name>org.zkoss.theme.preferred</name>
 		<value>CrudZK</value>
 	</library-property>
+	<session-config>
+		<max-desktops-per-session>10</max-desktops-per-session>
+	</session-config>
 </zk>

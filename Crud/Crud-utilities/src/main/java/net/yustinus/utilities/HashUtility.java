@@ -28,7 +28,7 @@
  */
 package net.yustinus.utilities;
 
-import static com.google.common.base.Strings.isNullOrEmpty;
+//import static com.google.common.base.Strings.isNullOrEmpty;
 import static java.lang.String.format;
 
 import org.bouncycastle.crypto.digests.SHA3Digest;
@@ -62,9 +62,9 @@ private static final DigestRandomGenerator drg = new DigestRandomGenerator(new S
     }
 	
 	public static String hash(String plainPassword, byte[] salt, int keyLength, int iterations) {
-		Preconditions.checkArgument(!isNullOrEmpty(plainPassword), "password can not be empty or null");
-		Preconditions.checkArgument(keyLength > 0, "the key length must be greater than 0");
-		Preconditions.checkArgument(iterations >= 0, "the number of iterations must be positive");
+		//Preconditions.checkArgument(!isNullOrEmpty(plainPassword), "password can not be empty or null");
+		//Preconditions.checkArgument(keyLength > 0, "the key length must be greater than 0");
+		//Preconditions.checkArgument(iterations >= 0, "the number of iterations must be positive");
         
         PKCS5S2ParametersGenerator generator = new PKCS5S2ParametersGenerator();
         generator.init(plainPassword.getBytes(Charsets.UTF_8),
@@ -78,8 +78,8 @@ private static final DigestRandomGenerator drg = new DigestRandomGenerator(new S
 	}
 	
 	public static boolean verify(String plainPassword, String hash) {
-        Preconditions.checkArgument(!isNullOrEmpty(plainPassword));
-        Preconditions.checkArgument(!isNullOrEmpty(hash));
+        //Preconditions.checkArgument(!isNullOrEmpty(plainPassword));
+        //Preconditions.checkArgument(!isNullOrEmpty(hash));
         String ecyPlain = hash(plainPassword, decode(extractSalt(hash)));
         if (ecyPlain.equals(hash)) {
         	return true;

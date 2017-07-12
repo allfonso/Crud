@@ -40,6 +40,6 @@ public class MenuTest extends BasicTest {
 	@Test
 	public void getBreadcrumb() {
 		List<MenuDto> menus = menuService.getBreadcrumb(12);
-		Assert.assertEquals(4, menus.size());
+		Assert.assertEquals(3, menus.size());
 	}
 }

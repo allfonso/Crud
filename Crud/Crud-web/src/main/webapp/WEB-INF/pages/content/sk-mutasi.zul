@@ -1,0 +1,31 @@
+<zk>
+	<div sclass="content-header">
+		<label value="Page Header" sclass="h1" />
+		<label value="Optional description" sclass="h1 small" style="line-height:1; color:#777;" />
+		<include src="@init('/WEB-INF/pages/breadcrumbs.zul')" />
+	</div>
+	<div sclass="content">
+		<window style="padding:0;margin:0;">
+			<listbox>
+				<listhead>
+					<listheader label="No SK"/>
+					<listheader label="Nama"/>
+					<listheader label="Tmt SK"/>
+					<listheader label="Tgl. SK"/>
+					<listheader label=""/>
+				</listhead>
+				<listitem>
+				<listcell>001/Pem.D.UP/D4</listcell>
+				<listcell>Yustinus Nugroho</listcell>
+				<listcell>01-01-2017</listcell>
+				<listcell>01-01-2017</listcell>
+				<listcell>
+				<toolbarbutton iconSclass="fa fa-trash" tooltiptext="Delete"/>
+				<toolbarbutton iconSclass="fa fa-edit" tooltiptext="Update"/>
+				<toolbarbutton iconSclass="fa fa-print" tooltiptext="Print"/>
+				</listcell>
+				</listitem>
+			</listbox>
+		</window>
+	</div>
+</zk>

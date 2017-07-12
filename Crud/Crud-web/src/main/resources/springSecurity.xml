@@ -14,6 +14,9 @@
         http://www.zkoss.org/2008/zkspring/security/zkspring-security.xsd">
 
 	<global-method-security secured-annotations="enabled" pre-post-annotations="enabled" />
+	
+	<beans:bean id="customPasswordEncoder" class="net.yustinus.crud.web.base.CustomPasswordEncoder"/>	
+	<beans:bean id="customSpringUserDetailService" class="net.yustinus.crud.web.base.CustomSpringUserDetailService"/>
 
 	<http auto-config="true" use-expressions="false">	
 		<intercept-url pattern="/zkau/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
@@ -37,10 +40,14 @@
 	</http>
 
 	<authentication-manager>
-		<authentication-provider>
-			<user-service>
-				<user name="isidorus" authorities="ROLE_USER" password="111" />
-			</user-service>
+		<authentication-provider user-service-ref="customSpringUserDetailService">
+		<password-encoder ref="customPasswordEncoder" />
+		<!--<user-service />
+			 <user-service>
+				<user name="isidorus" authorities="ROLE_USER" password="T2jPQThuKcSWmVf16+MYsrgURL9B/s6xOE3hN0O3Z9EDwwZsycSxRjMAvYTlPv7alFyps07Otl570L4ki6cMiJXH+jkmxCzroFrn81vQ7+fCJreot69KbEoO7JwnuTJCbMejGd00QKxo778vP+HDvbvGvpllMpb6/Oy24UCQGyY=|6csO8wn5GXoX22VmovbnhxwXmgpBzHHo+giPCN3Xl91Q0SrrYzlnjv6NuxFKrc57G+rfr8sNVNVcQkmXVjEycQ==" />
+			</user-service> -->
 		</authentication-provider>
 	</authentication-manager>
+	
+	
 </beans:beans>

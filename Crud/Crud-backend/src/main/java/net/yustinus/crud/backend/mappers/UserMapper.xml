@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.yustinus.crud.backend.mappers.UserMapper">
+
+	<select id="selectUserByUsername" resultMap="rsUser">
+		SELECT u.`user_id` AS userId,
+		u.`user_name` AS username,
+		u.`nip` AS nip,
+		u.`password` AS userPassword,
+		u.`last_login` AS lastLogin,
+		u.`disable` AS userDisable,
+		p.`profile_id` AS profileId,
+		p.`profile` AS profileName,
+		p.`disable` AS profileDisable,
+		r.`role_id` AS roleId,
+		r.`role` AS roleName,
+		r.`disable` AS roleDisable
+		FROM vr_user_profile p JOIN vr_user_profile_role pr ON p.`profile_id` = pr.`profile_id`
+		JOIN vr_user_role r ON pr.`role_id` = r.`role_id`
+		JOIN vr_user u ON u.`profile_id` = p.`profile_id`
+		WHERE u.`disable` = FALSE AND p.`disable` = FALSE AND r.`disable` = FALSE
+		AND u.`user_name` = #{username}
+	</select>
+
+
+	<resultMap type="UserBean" id="rsUser">
+		<id property="userId" column="userId" />
+		<result property="username" column="userName" />
+		<result property="nip" column="nip" />
+		<result property="userPassword" column="userPassword" />
+		<result property="lastLogin" column="lastLogin" />
+		<result property="userDisable" column="userDisable" />
+		<association property="userProfile" javaType="ProfileDto">
+			<id property="profileId" column="profileId" />
+			<result property="profileName" column="profileName" />
+			<result property="profileDisable" column="profileDisable" />
+			<collection property="roles" ofType="RoleDto">
+				<id property="roleId" column="roleId"/>
+				<result property="roleName" column="roleName"/>
+				<result property="roleDisable" column="roleDisable"/>
+			</collection>
+		</association>
+	</resultMap>
+</mapper>

@@ -38,14 +38,14 @@
 					</zk>
 					<zk if="${not empty mainMenu.childMenu }">
 						<div class="treeview">
-							<a iconSclass="@load(mainMenu.parentMenu.menuIcon)" style="margin-bottom:-5px;">
+							<a iconSclass="@load(mainMenu.parentMenu.menuIcon)" style="">
 								<label value="@load(mainMenu.parentMenu.menuCaption)" />
 								<span class="fa fa-angle-left pull-right-container" />
 							</a>
 							<div class="treeview-menu" children="@load(mainMenu.childMenu) @template('templateChildMenu')">
 								<template name="templateChildMenu" var="treeMenu">
 									<div>
-										<a onClick="@global-command('navigation', menu=treeMenu)">
+										<a iconSclass="@load(treeMenu.menuIcon)" onClick="@global-command('navigation', menu=treeMenu)">
 											<label value="@load(treeMenu.menuCaption)" />
 										</a>
 									</div>

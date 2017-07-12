@@ -22,6 +22,9 @@
     <category name="net.yustinus.crud">
         <priority value="WARN" />
     </category>
+    <category name="net.yustinus.crud.backend.mappers.UserMapper">
+        <priority value="TRACE" />
+    </category>
 
     <!-- setup the log level -->
     <!-- level | OFF | ALL | TRACE | DEBUG | INFO | WARN | ERROR | FATAL | -->

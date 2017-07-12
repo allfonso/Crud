@@ -1,7 +1,9 @@
 /**
- * Copyright (c) 2016, Yustinus Nugroho
  * 
- * This software is created for education only.
+ * Copyright (c) 2017, Yustinus Nugroho
+ * 
+ * This software is created to help SIMPEG division in Badan Kepegawaian Daerah
+ * gathering and organizing data from other divisions.
  * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -26,21 +28,35 @@
  * 
  * Hope this make changes.
  */
-package net.yustinus.crud.backend.alltests;
+package net.yustinus.crud.backend.services.implementations;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import net.yustinus.crud.backend.tests.EmployeeTest;
-import net.yustinus.crud.backend.tests.MenuTest;
-import net.yustinus.crud.backend.tests.UserTest;
+import net.yustinus.crud.backend.beans.UserBean;
+import net.yustinus.crud.backend.mappers.UserMapper;
+import net.yustinus.crud.backend.services.UserService;
 
 /**
  * @author Yustinus Nugroho
  *
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({EmployeeTest.class, MenuTest.class, UserTest.class })
-public class AllTest {
+
+@Service("userService")
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+public class UserServiceImpl implements UserService {
+
+	/* (non-Javadoc)
+	 * @see net.yustinus.crud.backend.services.UserService#getUserByUsername(java.lang.String)
+	 */
+	@Autowired
+	private UserMapper userMapper;
+	
+	@Override
+	public UserBean getUserByUsername(String username) {		
+		return this.userMapper.selectUserByUsername(username);
+	}
 
 }

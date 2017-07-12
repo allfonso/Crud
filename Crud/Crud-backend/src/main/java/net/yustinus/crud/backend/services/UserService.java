@@ -1,7 +1,9 @@
 /**
- * Copyright (c) 2016, Yustinus Nugroho
  * 
- * This software is created for education only.
+ * Copyright (c) 2017, Yustinus Nugroho
+ * 
+ * This software is created to help SIMPEG division in Badan Kepegawaian Daerah
+ * gathering and organizing data from other divisions.
  * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -26,21 +28,16 @@
  * 
  * Hope this make changes.
  */
-package net.yustinus.crud.backend.alltests;
+package net.yustinus.crud.backend.services;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-
-import net.yustinus.crud.backend.tests.EmployeeTest;
-import net.yustinus.crud.backend.tests.MenuTest;
-import net.yustinus.crud.backend.tests.UserTest;
+import net.yustinus.crud.backend.beans.UserBean;
 
 /**
  * @author Yustinus Nugroho
  *
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({EmployeeTest.class, MenuTest.class, UserTest.class })
-public class AllTest {
+public interface UserService {
+	
+	public UserBean getUserByUsername(String username);
 
 }

@@ -661,19 +661,20 @@ position: absolute;
     width: 180px;
     left: 50px;
   }
+  
   .sidebar-collapse .sidebar-menu > div > div:hover > a > span {
     top: 0;
     margin-left: -3px;
-    padding: 12px 5px 12px 20px;
-    background-color: inherit;
+    padding: 12px 5px 15px 20px;
+    background-color: inherit;   
   }
   .sidebar-collapse .sidebar-menu > div > div:hover > a > .pull-right-container {
     position: relative!important;
     float: right;
     width: auto!important;
     left: 180px !important;
-    top: -22px !important;
-    z-index: 900;
+    top: -25px !important;
+    z-index: 900;    
   }
   .sidebar-collapse .sidebar-menu > div > div:hover > a > .pull-right-container > .label:not(:first-of-type) {
     display: none;

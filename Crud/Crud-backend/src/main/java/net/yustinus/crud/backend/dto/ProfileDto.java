@@ -1,7 +1,9 @@
 /**
- * Copyright (c) 2016, Yustinus Nugroho
  * 
- * This software is created for education only.
+ * Copyright (c) 2017, Yustinus Nugroho
+ * 
+ * This software is created to help SIMPEG division in Badan Kepegawaian Daerah
+ * gathering and organizing data from other divisions.
  * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -26,21 +28,55 @@
  * 
  * Hope this make changes.
  */
-package net.yustinus.crud.backend.alltests;
+package net.yustinus.crud.backend.dto;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-
-import net.yustinus.crud.backend.tests.EmployeeTest;
-import net.yustinus.crud.backend.tests.MenuTest;
-import net.yustinus.crud.backend.tests.UserTest;
+import java.util.List;
 
 /**
  * @author Yustinus Nugroho
  *
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({EmployeeTest.class, MenuTest.class, UserTest.class })
-public class AllTest {
+public class ProfileDto {
+	
+	private int profileId;
+	private String profileName;
+	private boolean profileDisable;
+	private List<RoleDto> roles;
+	
+	public ProfileDto() {
+
+	}
+
+	public int getProfileId() {
+		return profileId;
+	}
+
+	public void setProfileId(int profileId) {
+		this.profileId = profileId;
+	}
+
+	public String getProfileName() {
+		return profileName;
+	}
+
+	public void setProfileName(String profileName) {
+		this.profileName = profileName;
+	}
+
+	public List<RoleDto> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<RoleDto> roles) {
+		this.roles = roles;
+	}
+
+	public boolean isProfileDisable() {
+		return profileDisable;
+	}
+
+	public void setProfileDisable(boolean profileDisable) {
+		this.profileDisable = profileDisable;
+	}		
 
 }

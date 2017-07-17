@@ -1,31 +1,168 @@
-<zk>
+<zk xmlns:n="native">
 	<div sclass="content-header">
 		<label value="Page Header" sclass="h1" />
 		<label value="Optional description" sclass="h1 small" style="line-height:1; color:#777;" />
 		<include src="@init('/WEB-INF/pages/breadcrumbs.zul')" />
 	</div>
 	<div sclass="content">
-		<window style="padding:0;margin:0;">
-			<listbox>
-				<listhead>
-					<listheader label="No SK"/>
-					<listheader label="Nama"/>
-					<listheader label="Tmt SK"/>
-					<listheader label="Tgl. SK"/>
-					<listheader label=""/>
-				</listhead>
-				<listitem>
-				<listcell>001/Pem.D.UP/D4</listcell>
-				<listcell>Yustinus Nugroho</listcell>
-				<listcell>01-01-2017</listcell>
-				<listcell>01-01-2017</listcell>
-				<listcell>
-				<toolbarbutton iconSclass="fa fa-trash" tooltiptext="Delete"/>
-				<toolbarbutton iconSclass="fa fa-edit" tooltiptext="Update"/>
-				<toolbarbutton iconSclass="fa fa-print" tooltiptext="Print"/>
-				</listcell>
-				</listitem>
-			</listbox>
-		</window>
+		<borderlayout vflex="1" style="border:none">
+			<north border="none">
+				<div style="padding:5px;" sclass="row">
+					<div sclass="col-sm-4">
+						<label value="Nomor SK" />
+						<textbox sclass="form-control input-sm" />
+					</div>
+					<div sclass="col-sm-4">
+						<label value="Tgl. SK" />
+						<datebox displayedTimeZones="GMT +7" sclass="custom-form-control" />
+					</div>
+					<div sclass="col-sm-4">
+						<label value="TMT SK" />
+						<datebox displayedTimeZones="+7" sclass="custom-form-control" />
+					</div>
+				</div>
+			</north>
+			<west width="50%" border="none">
+				<div>
+					<toolbar>
+						<toolbarbutton label="Tambah Pegawai" sclass="pull-right" />
+					</toolbar>
+					<listbox>
+						<listitem>
+							<listcell label="Yustinus" />
+							<listcell label="198506252010011012" />
+							<listcell label="III/b" />
+							<listcell>
+								<toolbarbutton label="info" />
+								<toolbarbutton label="edit" />
+								<toolbarbutton label="delete" />
+							</listcell>
+						</listitem>
+						<listitem>
+							<listcell label="Yustinus" />
+							<listcell label="198506252010011012" />
+							<listcell label="III/b" />
+							<listcell>
+								<toolbarbutton label="info" />
+								<toolbarbutton label="edit" />
+								<toolbarbutton label="delete" />
+							</listcell>
+						</listitem>
+						<listitem>
+							<listcell label="Yustinus" />
+							<listcell label="198506252010011012" />
+							<listcell label="III/b" />
+							<listcell>
+								<toolbarbutton label="info" />
+								<toolbarbutton label="edit" />
+								<toolbarbutton label="delete" />
+							</listcell>
+						</listitem>
+					</listbox>
+				</div>
+			</west>
+			<center border="none">
+				<tabbox mold="accordion" vflex="1">
+					<tabs>
+						<tab label="Mengingat" />
+						<tab label="Memperhatikan" />
+						<tab label="Menimbang" />
+						<tab label="Tembusan" />
+						<tab label="Tanda Tangan" />
+						<tab label="Template" />
+					</tabs>
+					<tabpanels>
+						<tabpanel>
+							<vlayout>
+								<checkbox label="Enable" />
+								<combobox autocomplete="true" sclass="custom-form-control">
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+								</combobox>
+								<div style="margin:20px 2px 2px 2px;" sclass="row">
+									<n:h5 sclass="pull-left">Description :</n:h5>
+									<toolbarbutton label="View detail" class="pull-right btn btn-default btn-flat btn-xs" />
+								</div>
+								<label width="100%" multiline="true"
+									value="ad adsfasd  asdoaod aosdjf asdfkjasd adj lakjdflakdsjfla sdjflkajsdlfkajd;l kfjalksd jflakdsjflaksjdlfkkasdlkfhalsd flaksd flasdflkajjsdlkfaldskfjalsd flkasd fals dfladflkasdflkajsdflkasjhflkadh" />
+							</vlayout>
+						</tabpanel>
+						<tabpanel>
+							<vlayout>
+								<checkbox label="Enable" />
+								<combobox autocomplete="true" sclass="custom-form-control">
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+								</combobox>
+								<div style="margin:20px 2px 2px 2px;" sclass="row">
+									<n:h5 sclass="pull-left">Description :</n:h5>
+									<toolbarbutton label="View detail" class="pull-right btn btn-default btn-flat btn-xs" />
+								</div>
+								<label width="100%" multiline="true"
+									value="ad adsfasd  asdoaod aosdjf asdfkjasd adj lakjdflakdsjfla sdjflkajsdlfkajd;l kfjalksd jflakdsjflaksjdlfkkasdlkfhalsd flaksd flasdflkajjsdlkfaldskfjalsd flkasd fals dfladflkasdflkajsdflkasjhflkadh" />
+							</vlayout>
+						</tabpanel>
+						<tabpanel>
+							<vlayout>
+								<checkbox label="Enable" />
+								<combobox autocomplete="true" sclass="custom-form-control">
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+								</combobox>
+								<div style="margin:20px 2px 2px 2px;" sclass="row">
+									<n:h5 sclass="pull-left">Description :</n:h5>
+									<toolbarbutton label="View detail" class="pull-right btn btn-default btn-flat btn-xs" />
+								</div>
+								<label width="100%" multiline="true"
+									value="ad adsfasd  asdoaod aosdjf asdfkjasd adj lakjdflakdsjfla sdjflkajsdlfkajd;l kfjalksd jflakdsjflaksjdlfkkasdlkfhalsd flaksd flasdflkajjsdlkfaldskfjalsd flkasd fals dfladflkasdflkajsdflkasjhflkadh" />
+							</vlayout>
+						</tabpanel>
+						<tabpanel>
+							<vlayout>
+								<checkbox label="Enable" />
+								<combobox autocomplete="true" sclass="custom-form-control">
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+								</combobox>
+								<div style="margin:20px 2px 2px 2px;" sclass="row">
+									<n:h5 sclass="pull-left">Description :</n:h5>
+									<toolbarbutton label="View detail" class="pull-right btn btn-default btn-flat btn-xs" />
+								</div>
+								<label width="100%" multiline="true"
+									value="ad adsfasd  asdoaod aosdjf asdfkjasd adj lakjdflakdsjfla sdjflkajsdlfkajd;l kfjalksd jflakdsjflaksjdlfkkasdlkfhalsd flaksd flasdflkajjsdlkfaldskfjalsd flkasd fals dfladflkasdflkajsdflkasjhflkadh" />
+							</vlayout>
+						</tabpanel>
+						<tabpanel>
+							<vlayout>
+								<checkbox label="Enable" />
+								<combobox autocomplete="true" sclass="custom-form-control">
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+									<comboitem label="Mengingat 1" />
+								</combobox>
+								<div style="margin:20px 2px 2px 2px;" sclass="row">
+									<n:h5 sclass="pull-left">Description :</n:h5>
+									<toolbarbutton label="View detail" class="pull-right btn btn-default btn-flat btn-xs" />
+								</div>
+								<label width="100%" multiline="true"
+									value="ad adsfasd  asdoaod aosdjf asdfkjasd adj lakjdflakdsjfla sdjflkajsdlfkajd;l kfjalksd jflakdsjflaksjdlfkkasdlkfhalsd flaksd flasdflkajjsdlkfaldskfjalsd flkasd fals dfladflkasdflkajsdflkasjhflkadh" />
+							</vlayout>
+						</tabpanel>
+					</tabpanels>
+				</tabbox>
+			</center>
+			<south vflex="1" border="none">
+				<button label="Save" sclass="btn btn-default btn-flat" />
+			</south>
+		</borderlayout>
 	</div>
 </zk>

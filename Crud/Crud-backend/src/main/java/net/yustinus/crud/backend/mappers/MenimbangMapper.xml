@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.yustinus.crud.backend.mappers.MenimbangMapper">
+
+	<select id="selectMenimbangById" resultMap="rsMenimbang">
+		SELECT m.`menimbang_id` AS menimbangId,
+		m.`menimbang_description` AS menimbangDescription,
+		m.`menimbang_name` AS menimbangName,
+		m.`disable` AS menimbangDisable,
+		mi.`menimbang_item_id` AS menimbangItemId,
+		mi.`menimbang_item` AS menimbangItem,
+		mi.`disable` AS menimbangItemDisable
+		FROM `vr_sk_mutasi_menimbang` m JOIN vr_sk_mutasi_menimbang_items mi ON m.`menimbang_id` = mi.`menimbang_id`
+		WHERE m.`disable` = FALSE AND mi.`disable` = FALSE AND m.`menimbang_id` = #{menimbangId}
+	</select>
+
+	<resultMap type="MenimbangDto" id="rsMenimbang">
+		<id property="menimbangId" column="menimbangId"/>
+		<result property="menimbangName" column="menimbangName"/>
+		<result property="menimbangDescription" column="menimbangDescription"/>
+		<result property="menimbangDisable" column="menimbangDisable"/>
+		<collection property="menimbangItems" ofType="MenimbangItemDto">
+			<id property="menimbangItemId" column="menimbangItemId"/>
+			<result property="menimbangItem" column="menimbangItem"/>
+			<result property="menimbangItemDisable" column="menimbangItemDisable"/>			
+			<result property="menimbangId" column="menimbangId"/>
+		</collection>
+	</resultMap>
+</mapper>

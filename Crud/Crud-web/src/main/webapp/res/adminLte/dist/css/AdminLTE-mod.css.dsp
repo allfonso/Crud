@@ -149,12 +149,14 @@ body.hold-transition .main-header .logo {
 }
 /* Content */
 .content {
-  min-height: 250px;
+  min-height: 500px;
   padding: 15px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  height:100%;
+  width:100%;  
 }
 /* H1 - H6 font */
 h1,
@@ -1393,6 +1395,38 @@ height: 175px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.custom-form-control > input {
+  border-radius: 0;
+  box-shadow: none;
+  border-color: #d2d6de;  
+  width: 90%;
+  height: 30px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;    
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.custom-form-control {
+display:block;
+}
+.custom-form-control > a {
+  height:30px;
+  width:30px;  
+}
+
+.datebox-form-control > .z-datebox-button > i {
+  font-size: large;
+  vertical-align: middle;
 }
 .form-group.has-success label {
   color: #00a65a;

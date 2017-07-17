@@ -16,7 +16,7 @@ public class NavigationVM {
 	public void nav(@BindingParam("menu") MenuDto selectedMenu) {
 		this.selectedMenu = selectedMenu;
 		System.out.println("NavigationVM : "+this.selectedMenu.getMenuCaption());
-	}
+	}		
 	
 	public String getContentUri() {
 		if (selectedMenu == null)

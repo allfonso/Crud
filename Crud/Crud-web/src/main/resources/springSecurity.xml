@@ -28,7 +28,11 @@
 			default-target-url="/welcome" 
 			authentication-failure-url="/login?error"
 		/> 
-		<logout logout-success-url="/login?logout" />
+		<logout logout-success-url="/login" 
+			delete-cookies="JSESSIONID"
+			invalidate-session="true"
+			logout-url="/login?logout"
+			/>
 				
 		<!-- <intercept-url pattern="/secure/extreme/**" access="ADMIN_MUTASI" /> <intercept-url pattern="/secure/**" access="IS_AUTHENTICATED_REMEMBERED" /> <intercept-url pattern="/zkau/**" access="IS_AUTHENTICATED_ANONYMOUSLY" 
 			/> <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" /> <form-login login-page="/login" authentication-failure-url="/login?login_error=1" /> <logout logout-success-url="/index.zul" invalidate-session="true" 

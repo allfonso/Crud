@@ -15,44 +15,49 @@
 <?script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script?>
 
 <zk xmlns:h="html" xmlns:x="xhtml" xmlns:ca="client/attribute" xmlns:n="native">
-<html style="color:red" if="${not empty param.login_error}">
-       
-        <![CDATA[ Your login attempt was not successful, try
-     again.
- 
- Reason:
-        ${SPRING_SECURITY_LAST_EXCEPTION.message} ]]>
-         
-    </html>
-<style>
-body {
-background: #d2d6de;
-}
-</style>
-	<div sclass="login-page" >
+
+	<style>body { background: #d2d6de; }</style>
+
+
+	<div sclass="login-page">
 		<div class="login-box" height="100%">
 			<div class="login-logo">
 				<n:b>SIMPEG</n:b>
 				<label value="veronica" style="font-size:20px; height:50px; line-height:50px;" />
 			</div>
-
+			<zk if="${not empty error }">
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" sclass="close" ca:data-dismiss="alert" ca:aria-hidden="true" label="&#215;" />
+					<span sclass="icon fa fa-warning">
+						<label value="${error } !" />
+					</span>
+				</div>
+			</zk>
+			<zk if="${not empty logout }">
+				<div class="alert alert-info alert-dismissible">
+					<button type="button" sclass="close" ca:data-dismiss="alert" ca:aria-hidden="true" label="&#215;" />
+					<span sclass="icon fa fa-info">
+						<label value="${logout } !" />
+					</span>
+				</div>
+			</zk>
 			<!-- /.login-logo -->
 			<div class="login-box-body">
 				<n:p class="login-box-msg" style="text-align:center">Sign in to start veronica</n:p>
 
 				<h:form action="login" method="post">
 					<div class="form-group has-feedback">
-						<textbox type="text" class="form-control" placeholder="Email" name="username"/>
+						<textbox type="text" class="form-control" placeholder="Username" name="username"/>
 						<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 					</div>
 					<div class="form-group has-feedback">
-						<textbox type="password" class="form-control" placeholder="Password" name="password"/>
+						<textbox type="password" class="form-control" placeholder="Password" name="password" />
 						<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 					</div>
 					<div class="row">
 						<div class="col-xs-8">
 							<div class="">
-								<checkbox label="Remember Me" sclass="login-checkbox"/>
+								<checkbox label="Remember Me" sclass="login-checkbox" />
 							</div>
 						</div>
 						<!-- /.col -->

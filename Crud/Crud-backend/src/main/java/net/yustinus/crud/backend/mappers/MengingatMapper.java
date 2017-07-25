@@ -1,7 +1,9 @@
 /**
- * Copyright (c) 2016, Yustinus Nugroho
  * 
- * This software is created for education only.
+ * Copyright (c) 2017, Yustinus Nugroho
+ * 
+ * This software is created to help SIMPEG division in Badan Kepegawaian Daerah
+ * gathering and organizing data from other divisions.
  * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -28,23 +30,14 @@
  */
 package net.yustinus.crud.backend.mappers;
 
-import net.yustinus.crud.backend.beans.MemberMutasiBean;
-import net.yustinus.crud.backend.dto.EmployeeDto;
+import net.yustinus.crud.backend.dto.MengingatDto;
 
 /**
  * @author Yustinus Nugroho
  *
  */
+public interface MengingatMapper {
+	
+	public MengingatDto selectMengingatById(int mengingatId);
 
-public interface EmployeeMapper {
-
-	public EmployeeDto getEmployeeById(int employeeId);
-	
-	public int insertEmployee(EmployeeDto employee);
-	
-	public int editEmployee(EmployeeDto employee);
-	
-	public int removeEmployee(int employeeId);
-	
-	public MemberMutasiBean selectMemberMutasiByNip(String nip);
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+  <fontFamily name="Arial">
+    <normal>net/yustinus/crud/fonts/arial.ttf</normal>
+    <bold>net/yustinus/crud/fonts/arialbd.ttf</bold>
+    <italic>net/yustinus/crud/fonts/ariali.ttf</italic>
+    <boldItalic>net/yustinus/crud/fonts/arialbi.ttf</boldItalic>
+    <black>net/yustinus/crud/fonts/arialblk.ttf</black>
+    <pdfEncoding>UTF-8</pdfEncoding>
+    <pdfEmbedded>true</pdfEmbedded>
+  </fontFamily>
+  <fontFamily name="ArialNarrow">
+    <normal>net/yustinus/crud/fonts/ARIALN.TTF</normal>
+    <bold>net/yustinus/crud/fonts/ARIALNB.TTF</bold>
+    <italic>net/yustinus/crud/fonts/ARIALNI.TTF</italic>
+    <boldItalic>net/yustinus/crud/fonts/ARIALNBI.TTF</boldItalic>    
+    <pdfEncoding>UTF-8</pdfEncoding>
+    <pdfEmbedded>true</pdfEmbedded>
+  </fontFamily>
+</fontFamilies>

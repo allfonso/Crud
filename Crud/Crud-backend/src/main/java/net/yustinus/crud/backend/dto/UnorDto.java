@@ -38,9 +38,13 @@ public class UnorDto {
 	
 	private String unorId;
 	private String unor;
-	private String unorParentId;
+	private String unorIndukId;
+	private String unorUptId;
 	private EselonDto eselon;
 	private boolean unorDisable;
+	private String fullyQualifiedUnorName;
+	private String namaJabatanStruktural;
+	private boolean unorDiy;
 	
 	public UnorDto() {
 		
@@ -62,14 +66,6 @@ public class UnorDto {
 		this.unor = unor;
 	}
 
-	public String getUnorParentId() {
-		return unorParentId;
-	}
-
-	public void setUnorParentId(String unorParentId) {
-		this.unorParentId = unorParentId;
-	}
-
 	public EselonDto getEselon() {
 		return eselon;
 	}
@@ -84,6 +80,46 @@ public class UnorDto {
 
 	public void setUnorDisable(boolean unorDisable) {
 		this.unorDisable = unorDisable;
+	}
+
+	public String getFullyQualifiedUnorName() {
+		return fullyQualifiedUnorName;
+	}
+
+	public void setFullyQualifiedUnorName(String fullyQualifiedUnorName) {
+		this.fullyQualifiedUnorName = fullyQualifiedUnorName;
+	}
+
+	public String getNamaJabatanStruktural() {
+		return namaJabatanStruktural;
+	}
+
+	public void setNamaJabatanStruktural(String namaJabatanStruktural) {
+		this.namaJabatanStruktural = namaJabatanStruktural;
+	}
+
+	public String getUnorIndukId() {
+		return unorIndukId;
+	}
+
+	public void setUnorIndukId(String unorIndukId) {
+		this.unorIndukId = unorIndukId;
+	}
+
+	public String getUnorUptId() {
+		return unorUptId;
+	}
+
+	public void setUnorUptId(String unorUptId) {
+		this.unorUptId = unorUptId;
+	}
+
+	public boolean isUnorDiy() {
+		return unorDiy;
+	}
+
+	public void setUnorDiy(boolean unorDiy) {
+		this.unorDiy = unorDiy;
 	}
 
 }

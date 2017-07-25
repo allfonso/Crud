@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.yustinus.crud.backend.mappers.MengingatMapper">
+
+	<select id="selectMengingatById" resultMap="rsMengingat">
+		SELECT m.`mengingat_id` AS mengingatId,
+		m.`mengingat_description` AS mengingatDescription,
+		m.`mengingat_name` AS mengingatName,
+		m.`disable` AS mengingatDisable,
+		mi.`mengingat_item_id` AS mengingatItemId,
+		mi.`mengingat_item` AS mengingatItem,
+		mi.`disable` AS mengingatItemDisable
+		FROM `vr_sk_mutasi_mengingat` m JOIN vr_sk_mutasi_mengingat_items mi ON m.`mengingat_id` = mi.`mengingat_id`
+		WHERE m.`disable` = FALSE AND mi.`disable` = FALSE AND m.`mengingat_id` = #{mengingatId}
+	</select>
+
+	<resultMap type="MengingatDto" id="rsMengingat">
+		<id property="mengingatId" column="mengingatId" />
+		<result property="mengingatName" column="mengingatName" />
+		<result property="mengingatDescription" column="mengingatDescription" />
+		<result property="mengingatDisable" column="mengingatDisable" />
+		<collection property="mengingatItems" ofType="MengingatItemDto">
+			<id property="mengingatItemId" column="mengingatItemId" />
+			<result property="mengingatItem" column="mengingatItem" />
+			<result property="mengingatItemDisable" column="mengingatItemDisable" />
+			<result property="mengingatId" column="mengingatId" />
+		</collection>
+	</resultMap>
+</mapper>

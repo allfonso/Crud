@@ -37,7 +37,7 @@ package net.yustinus.crud.backend.dto;
 public class JenisJabatanDto {
 	
 	private int jenisJabatanId;
-	private String JenisJabatan;
+	private String jenisJabatan;
 	
 	public JenisJabatanDto() {		
 	}
@@ -51,11 +51,11 @@ public class JenisJabatanDto {
 	}
 
 	public String getJenisJabatan() {
-		return JenisJabatan;
+		return jenisJabatan;
 	}
 
 	public void setJenisJabatan(String jenisJabatan) {
-		JenisJabatan = jenisJabatan;
-	}	
+		this.jenisJabatan = jenisJabatan;
+	}
 
 }

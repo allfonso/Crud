@@ -35,6 +35,7 @@ import java.util.Date;
 import net.yustinus.crud.backend.dto.GolonganDto;
 import net.yustinus.crud.backend.dto.JabatanDto;
 import net.yustinus.crud.backend.dto.PendidikanDto;
+import net.yustinus.crud.backend.dto.UnorDto;
 
 /**
  * @author Yustinus Nugroho
@@ -45,13 +46,16 @@ public class MemberMutasiBean {
 	private int skMutasiId;
 	private String nama;
 	private String nip;
+	private Date tmtGolongan;
 	private GolonganDto golongan;
+	private String tempatLahir;
 	private Date tglLahir;
 	private JabatanDto jabatanLama;
-	private FullyQualifiedUnorBean unorLama;
+	private UnorDto unorLama;
 	private JabatanDto jabatanBaru;
-	private FullyQualifiedUnorBean unorBaru;
-	private PendidikanDto pendidikan;
+	private UnorDto unorBaru;	
+	private PendidikanDto pendidikanLama;
+	private PendidikanDto pendidikanBaru;
 	
 	public MemberMutasiBean() {
 		
@@ -103,15 +107,7 @@ public class MemberMutasiBean {
 
 	public void setJabatanLama(JabatanDto jabatanLama) {
 		this.jabatanLama = jabatanLama;
-	}
-
-	public FullyQualifiedUnorBean getUnorLama() {
-		return unorLama;
-	}
-
-	public void setUnorLama(FullyQualifiedUnorBean unorLama) {
-		this.unorLama = unorLama;
-	}
+	}	
 
 	public JabatanDto getJabatanBaru() {
 		return jabatanBaru;
@@ -121,19 +117,51 @@ public class MemberMutasiBean {
 		this.jabatanBaru = jabatanBaru;
 	}
 
-	public FullyQualifiedUnorBean getUnorBaru() {
+	public UnorDto getUnorLama() {
+		return unorLama;
+	}
+
+	public void setUnorLama(UnorDto unorLama) {
+		this.unorLama = unorLama;
+	}
+
+	public UnorDto getUnorBaru() {
 		return unorBaru;
 	}
 
-	public void setUnorBaru(FullyQualifiedUnorBean unorBaru) {
+	public void setUnorBaru(UnorDto unorBaru) {
 		this.unorBaru = unorBaru;
 	}
 
-	public PendidikanDto getPendidikan() {
-		return pendidikan;
+	public Date getTmtGolongan() {
+		return tmtGolongan;
 	}
 
-	public void setPendidikan(PendidikanDto pendidikan) {
-		this.pendidikan = pendidikan;
+	public void setTmtGolongan(Date tmtGolongan) {
+		this.tmtGolongan = tmtGolongan;
+	}
+
+	public String getTempatLahir() {
+		return tempatLahir;
+	}
+
+	public void setTempatLahir(String tempatLahir) {
+		this.tempatLahir = tempatLahir;
+	}
+
+	public PendidikanDto getPendidikanLama() {
+		return pendidikanLama;
+	}
+
+	public void setPendidikanLama(PendidikanDto pendidikanLama) {
+		this.pendidikanLama = pendidikanLama;
+	}
+
+	public PendidikanDto getPendidikanBaru() {
+		return pendidikanBaru;
+	}
+
+	public void setPendidikanBaru(PendidikanDto pendidikanBaru) {
+		this.pendidikanBaru = pendidikanBaru;
 	}
 }

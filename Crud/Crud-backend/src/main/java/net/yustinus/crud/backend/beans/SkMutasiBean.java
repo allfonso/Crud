@@ -47,7 +47,7 @@ import net.yustinus.crud.backend.dto.TemplateSkMutasiDto;
  */
 public class SkMutasiBean {
 	
-	private int SkMutasiId;
+	private int skMutasiId;
 	private Date tglSkMutasi;
 	private Date tmtSkMutasi;
 	private String noSkMutasi;
@@ -59,18 +59,17 @@ public class SkMutasiBean {
 	private SpecimentDto speciment;
 	private AtasNamaDto atasNama;
 	private TemplateSkMutasiDto templateSkMutasi;
+	private int spaceBeforeMenimbang;
+	private int spaceBeforeMengingat;
+	private int spaceBeforeMemperhatikan;
+	private int spaceBeforeMenetapkan;
+	private int spaceBeforePenutup;
+	private int spaceBeforeTembusan;
+	private int spaceBeforeSpeciment;
 	
 	public SkMutasiBean() {
 		
-	}
-
-	public int getSkMutasiId() {
-		return SkMutasiId;
-	}
-
-	public void setSkMutasiId(int skMutasiId) {
-		SkMutasiId = skMutasiId;
-	}
+	}	
 
 	public Date getTglSkMutasi() {
 		return tglSkMutasi;
@@ -158,6 +157,70 @@ public class SkMutasiBean {
 
 	public void setNoSkMutasi(String noSkMutasi) {
 		this.noSkMutasi = noSkMutasi;
+	}
+
+	public int getSkMutasiId() {
+		return skMutasiId;
+	}
+
+	public void setSkMutasiId(int skMutasiId) {
+		this.skMutasiId = skMutasiId;
+	}
+
+	public int getSpaceBeforeMenimbang() {
+		return spaceBeforeMenimbang;
+	}
+
+	public void setSpaceBeforeMenimbang(int spaceBeforeMenimbang) {
+		this.spaceBeforeMenimbang = spaceBeforeMenimbang;
+	}
+
+	public int getSpaceBeforeMengingat() {
+		return spaceBeforeMengingat;
+	}
+
+	public void setSpaceBeforeMengingat(int spaceBeforeMengingat) {
+		this.spaceBeforeMengingat = spaceBeforeMengingat;
+	}
+
+	public int getSpaceBeforeMemperhatikan() {
+		return spaceBeforeMemperhatikan;
+	}
+
+	public void setSpaceBeforeMemperhatikan(int spaceBeforeMemperhatikan) {
+		this.spaceBeforeMemperhatikan = spaceBeforeMemperhatikan;
+	}
+
+	public int getSpaceBeforeMenetapkan() {
+		return spaceBeforeMenetapkan;
+	}
+
+	public void setSpaceBeforeMenetapkan(int spaceBeforeMenetapkan) {
+		this.spaceBeforeMenetapkan = spaceBeforeMenetapkan;
+	}
+
+	public int getSpaceBeforePenutup() {
+		return spaceBeforePenutup;
+	}
+
+	public void setSpaceBeforePenutup(int spaceBeforePenutup) {
+		this.spaceBeforePenutup = spaceBeforePenutup;
+	}
+
+	public int getSpaceBeforeTembusan() {
+		return spaceBeforeTembusan;
+	}
+
+	public void setSpaceBeforeTembusan(int spaceBeforeTembusan) {
+		this.spaceBeforeTembusan = spaceBeforeTembusan;
+	}
+
+	public int getSpaceBeforeSpeciment() {
+		return spaceBeforeSpeciment;
+	}
+
+	public void setSpaceBeforeSpeciment(int spaceBeforeSpeciment) {
+		this.spaceBeforeSpeciment = spaceBeforeSpeciment;
 	}
 
 }

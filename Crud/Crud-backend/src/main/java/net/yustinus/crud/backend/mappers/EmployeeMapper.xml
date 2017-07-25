@@ -18,19 +18,142 @@
 
 	<insert id="insertEmployee" parameterType="EmployeeDto" useGeneratedKeys="true" keyProperty="employeeId" keyColumn="id">
 		INSERT INTO
-		cr_employee VALUE (#{employeeId}, #{name},#{gender},#{address},#{age})
+		cr_employee VALUE (#{employeeId},
+		#{name},#{gender},#{address},#{age})
 	</insert>
-	
+
 	<update id="editEmployee" parameterType="EmployeeDto">
-	UPDATE cr_employee SET
+		UPDATE cr_employee SET
 		NAME = #{name},
 		gender = #{gender},
 		address = #{address},
 		age = #{age}
-	WHERE id = #{employeeId}
+		WHERE id = #{employeeId}
 	</update>
-	
+
 	<delete id="removeEmployee" parameterType="int">
-	DELETE FROM cr_employee WHERE id = #{employeeId}
+		DELETE FROM cr_employee WHERE id = #{employeeId}
 	</delete>
+
+	<!-- <select id="selectMemberMutasiByNip" parameterType="String" resultMap="rsMemberMutasi">
+		SELECT CONCAT(IF(m.`B31` IS NOT NULL AND m.`B31` !='', CONCAT(m.`B31`,". "),''),
+		IF(m.`B33` IS NOT NULL AND m.`B33` !='', CONCAT(m.`B33`,'. '),''),
+		m.`B3`,
+		IF(m.`B32` IS NOT NULL AND m.`B32` !='', CONCAT(', ',m.`B32`),'')
+		) AS nama,
+		m.`B21` AS nip,
+		g.`F3` AS golonganId,
+		g.`GOL` AS golongan,
+		g.`PANGKAT` AS pangkat,
+		m.`F2` AS tmtGolongan,
+		m.`B4` AS tempatLahir,
+		m.`B5` AS tglLahir,
+		tf.`id_jabatan` AS jabatanLamaId,
+		tf.`NMJAB` AS jabatanLamaName,
+		jj.`jenis_jabatan_id` AS jenisJabatanLamaId,
+		jj.`jenis_jabatan` AS jenisJabatanLama,
+		u.`KODE_UNOR` AS unorLamaId,
+		IF (m.`I7` != '2' ,u.`UNOR`, (SELECT unor FROM unitkerja WHERE KODE_UNOR = u.UNKER)) AS unorLama,
+		u.`UNKER` AS unorIndukLamaId,
+		u.`UNKER_UPT` AS unorUptLamaId,
+		te.`KODEESELON` AS eselonLamaId,
+		te.`I6` AS eselonLama,
+		u.`IS_AKTIF` AS unorLamaDisable,
+		u.`IS_DIY` AS unorLamaDiy,
+		IF(m.I7 != '2',SUBSTR(REPLACE(LONGJAB,'pada ',''),8),(SELECT SUBSTR(REPLACE(ua.LONGJAB,'pada ',''),8) FROM unitkerja ua WHERE ua.KODE_UNOR = m.UNKER)) AS fullyQualifiedUnorLamaName,
+		u.`LONGJAB` AS namaJabatanStrukturalLama,
+		tkp.`H1` AS tingkatPendidikanLamaId,
+		tkp.`TKPEND` AS tingkatPendidikanLama,
+		tp.`ID` AS pendidikanLamaId,
+		tp.`NM_DIK` AS pendidikanLama
+		FROM msp m JOIN tgol g ON m.`F3` = g.`F3`
+		JOIN jenis_jabatan jj ON CAST(m.`I7` AS INTEGER) = jj.`jenis_jabatan_id`
+		JOIN unitkerja u ON m.`KODE_UNOR` = u.`KODE_UNOR`
+		JOIN tbtkpend tkp ON m.`H1` = tkp.`H1`
+		JOIN tbdik tp ON m.`H2` = tp.`ID`
+		JOIN tbfungsional tf ON m.`G6` = tf.`I5`
+		LEFT JOIN tbeselon te ON u.`ESELON` = te.`KODEESELON`
+		WHERE m.`B21` = '197608161998032001'
+	</select>
+
+	<resultMap type="MemberMutasiBean" id="rsMemberMutasi">
+		<id property="skMutasiId" column="skMutasiId" />
+		<id property="nip" column="nip" />
+		<result property="nama" column="nama" />
+		<result property="tmtGolongan" column="tmtGolongan" />
+		<association property="golongan" javaType="GolonganDto">
+			<id property="golonganId" column="golonganId" />
+			<result property="golongan" column="golongan" />
+			<result property="pangkat" column="pangkat" />
+		</association>
+		<result property="tempatLahir" column="tempatLahir" />
+		<result property="tglLahir" column="tglLahir" />
+
+		<!-- <association property="jabatanLama" javaType="JabatanDto">
+			<result property="jabatanId" column="jabatanLamaId" />
+			<result property="jabatanName" column="jabatanLamaName" />
+			<association property="jenisJabatan" javaType="JenisJabatanDto">
+				<id property="jenisJabatanId" column="jenisJabatanLamaId" />
+				<result property="jenisJabatan" column="jenisJabatanLama" />
+			</association>
+			<result property="jabatanDisable" column="jabatanLamaDisable" />
+		</association>
+		<association property="unorLama" javaType="UnorDto">
+			<id property="unorId" column="unorLamaId" />
+			<result property="unor" column="unorLama" />
+			<result property="unorIndukId" column="unorIndukLamaId" />
+			<result property="unorUptId" column="unorUptLamaId" />
+			<association property="eselon" javaType="EselonDto">
+				<id property="eselonId" column="eselonLamaId" />
+				<result property="eselon" column="eselonLama" />
+			</association>
+			<result property="unorDisable" column="unorLamaDisable" />
+			<result property="fullyQualifiedUnorName" column="fullyQualifiedUnorLamaName" />
+			<result property="namaJabatanStruktural" column="namaJabatanStrukturalLama" />
+			<result property="unorDiy" column="unorLamaDiy" />
+		</association>
+		<association property="jabatanBaru" javaType="JabatanDto">
+			<result property="jabatanId" column="jabatanBaruId" />
+			<result property="jabatanName" column="jabatanBaruName" />
+			<association property="jenisJabatan" javaType="JenisJabatanDto">
+				<id property="jenisJabatanId" column="jenisJabatanBaruId" />
+				<result property="jenisJabatan" column="jenisJabatanBaru" />
+			</association>
+			<result property="jabatanDisable" column="jabatanBaruDisable" />
+		</association>
+		<association property="unorBaru" javaType="UnorDto">
+			<id property="unorId" column="unorBaruId" />
+			<result property="unor" column="unorBaru" />
+			<result property="unorIndukId" column="unorIndukBaruId" />
+			<result property="unorUptId" column="unorUptBaruId" />
+			<association property="eselon" javaType="EselonDto">
+				<id property="eselonId" column="eselonBaruId" />
+				<result property="eselon" column="eselonBaru" />
+			</association>
+			<result property="unorDisable" column="unorBaruDisable" />
+			<result property="fullyQualifiedUnorName" column="fullyQualifiedUnorBaruName" />
+			<result property="namaJabatanStruktural" column="namaJabatanStrukturalBaru" />
+			<result property="unorDiy" column="unorBaruDiy" />
+		</association>
+		<association property="pendidikanLama" javaType="PendidikanDto">
+			<id property="pendidikanId" column="pendidikanLamaId" />
+			<result property="pendidikan" column="pendidikanLama" />
+			<association property="tingkatPendidikan" javaType="TingkatPendidikanDto">
+				<id property="tingkatPendidikanId" column="tingkatPendidikanLamaId" />
+				<result property="tingkatPendidikan" column="tingkatPendidikanLama" />
+				<result property="minGolongan" column="minGolonganLama" />
+				<result property="maxGolongan" column="maxGolonganLama" />
+			</association>
+		</association>
+		<association property="pendidikanBaru" javaType="PendidikanDto">
+			<id property="pendidikanId" column="pendidikanBaruId" />
+			<result property="pendidikan" column="pendidikanBaru" />
+			<association property="tingkatPendidikan" javaType="TingkatPendidikanDto">
+				<id property="tingkatPendidikanId" column="tingkatPendidikanBaruId" />
+				<result property="tingkatPendidikan" column="tingkatPendidikanBaru" />
+				<result property="minGolongan" column="minGolonganBaru" />
+				<result property="maxGolongan" column="maxGolonganBaru" />
+			</association>
+		</association>
+	</resultMap>-->
 </mapper>

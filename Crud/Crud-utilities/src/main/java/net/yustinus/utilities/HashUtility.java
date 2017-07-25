@@ -38,7 +38,6 @@ import org.bouncycastle.crypto.prng.DigestRandomGenerator;
 import org.bouncycastle.util.encoders.Base64;
 
 import com.google.common.base.Charsets;
-import com.google.common.base.Preconditions;
 
 /**
  * @author Yustinus Nugroho

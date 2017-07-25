@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.yustinus.crud.backend.mappers.MemperhatikanMapper">
+
+	<select id="selectMemperhatikanById" resultMap="rsMemperhatikan">
+		SELECT m.`memperhatikan_id` AS memperhatikanId,
+		m.`memperhatikan_description` AS memperhatikanDescription,
+		m.`memperhatikan_name` AS memperhatikanName,
+		m.`disable` AS memperhatikanDisable,
+		mi.`memperhatikan_item_id` AS memperhatikanItemId,
+		mi.`memperhatikan_item` AS memperhatikanItem,
+		mi.`disable` AS memperhatikanItemDisable
+		FROM `vr_sk_mutasi_memperhatikan` m JOIN vr_sk_mutasi_memperhatikan_items mi ON m.`memperhatikan_id` = mi.`memperhatikan_id`
+		WHERE m.`disable` = FALSE AND mi.`disable` = FALSE AND m.`memperhatikan_id` = #{memperhatikanId}
+	</select>
+
+	<resultMap type="MemperhatikanDto" id="rsMemperhatikan">
+		<id property="memperhatikanId" column="memperhatikanId" />
+		<result property="memperhatikanName" column="memperhatikanName" />
+		<result property="memperhatikanDescription" column="memperhatikanDescription" />
+		<result property="memperhatikanDisable" column="memperhatikanDisable" />
+		<collection property="memperhatikanItems" ofType="MemperhatikanItemDto">
+			<id property="memperhatikanItemId" column="memperhatikanItemId" />
+			<result property="memperhatikanItem" column="memperhatikanItem" />
+			<result property="memperhatikanItemDisable" column="memperhatikanItemDisable" />
+			<result property="memperhatikanId" column="memperhatikanId" />
+		</collection>
+	</resultMap>
+</mapper>

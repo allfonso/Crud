@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.yustinus.crud.backend.mappers.TembusanMapper">
+
+	<select id="selectTembusanById" resultMap="rsTembusan">
+		SELECT m.`tembusan_id` AS tembusanId,
+		m.`tembusan_description` AS tembusanDescription,
+		m.`tembusan_name` AS tembusanName,
+		m.`disable` AS tembusanDisable,
+		mi.`tembusan_item_id` AS tembusanItemId,
+		mi.`tembusan_item` AS tembusanItem,
+		mi.`disable` AS tembusanItemDisable
+		FROM `vr_sk_mutasi_tembusan` m JOIN vr_sk_mutasi_tembusan_items mi ON m.`tembusan_id` = mi.`tembusan_id`
+		WHERE m.`disable` = FALSE AND mi.`disable` = FALSE AND m.`tembusan_id` = #{tembusanId}
+	</select>
+
+	<resultMap type="TembusanDto" id="rsTembusan">
+		<id property="tembusanId" column="tembusanId" />
+		<result property="tembusanName" column="tembusanName" />
+		<result property="tembusanDescription" column="tembusanDescription" />
+		<result property="tembusanDisable" column="tembusanDisable" />
+		<collection property="tembusanItems" ofType="TembusanItemDto">
+			<id property="tembusanItemId" column="tembusanItemId" />
+			<result property="tembusanItem" column="tembusanItem" />
+			<result property="tembusanItemDisable" column="tembusanItemDisable" />
+			<result property="tembusanId" column="tembusanId" />
+		</collection>
+	</resultMap>
+</mapper>

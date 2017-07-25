@@ -1,7 +1,9 @@
 /**
- * Copyright (c) 2016, Yustinus Nugroho
  * 
- * This software is created for education only.
+ * Copyright (c) 2017, Yustinus Nugroho
+ * 
+ * This software is created to help SIMPEG division in Badan Kepegawaian Daerah
+ * gathering and organizing data from other divisions.
  * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -26,25 +28,37 @@
  * 
  * Hope this make changes.
  */
-package net.yustinus.crud.backend.mappers;
+package net.yustinus.crud.backend.services.implementations;
 
-import net.yustinus.crud.backend.beans.MemberMutasiBean;
-import net.yustinus.crud.backend.dto.EmployeeDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import net.yustinus.crud.backend.dto.MengingatDto;
+import net.yustinus.crud.backend.mappers.MengingatMapper;
+import net.yustinus.crud.backend.services.MengingatService;
 
 /**
  * @author Yustinus Nugroho
  *
  */
 
-public interface EmployeeMapper {
+@Service("mengingatService")
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+public class MengingatServiceImpl implements MengingatService {
 
-	public EmployeeDto getEmployeeById(int employeeId);
+	/* (non-Javadoc)
+	 * @see net.yustinus.crud.backend.services.mengingatService#getmengingatById(int)
+	 */
 	
-	public int insertEmployee(EmployeeDto employee);
+	@Autowired
+	private MengingatMapper mengingatMapper;
 	
-	public int editEmployee(EmployeeDto employee);
-	
-	public int removeEmployee(int employeeId);
-	
-	public MemberMutasiBean selectMemberMutasiByNip(String nip);
+	@Override
+	public MengingatDto getMengingatById(int mengingatId) {
+		
+		return mengingatMapper.selectMengingatById(mengingatId);
+	}
+
 }

@@ -28,38 +28,16 @@
  * 
  * Hope this make changes.
  */
-package net.yustinus.crud.backend.tests;
+package net.yustinus.crud.backend.mappers;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import net.yustinus.crud.backend.dto.MenimbangDto;
-import net.yustinus.crud.backend.dto.MenimbangItemDto;
-import net.yustinus.crud.backend.services.MenimbangService;
-import net.yustinus.crud.backend.testutils.BasicTest;
+import net.yustinus.crud.backend.dto.TembusanDto;
 
 /**
  * @author Yustinus Nugroho
  *
  */
-public class MenimbangTest extends BasicTest {
-
-	@Autowired
-	private MenimbangService menimbangService;
+public interface TembusanMapper {
 	
-	@Test
-	public void test() {
-		MenimbangDto menimbangDto = menimbangService.getMenimbangById(1);
-		System.out.println("Menimbang ID : "+menimbangDto.getMenimbangId());
-		System.out.println("Menimbang Name : "+menimbangDto.getMenimbangName());
-		System.out.println("Menimbang Description : "+menimbangDto.getMenimbangDescription());
-		System.out.println("Menimbang disable : "+menimbangDto.isMenimbangDisable());
-		for (MenimbangItemDto mid : menimbangDto.getMenimbangItems()) {
-			System.out.println("\t Menimbang Item ID : "+mid.getMenimbangItemId());
-			System.out.println("\t Menimbang Item Name : "+mid.getMenimbangItem());
-			System.out.println("\t Menimbang Item disable : "+mid.isMenimbangItemDisable());
-		}
-		Assert.assertNotNull(menimbangDto);
-	}
+	public TembusanDto selectTembusanById(int tembusanId);
+
 }
